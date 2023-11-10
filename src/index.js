@@ -6,7 +6,7 @@ const port = 3000;
 
 app.get('/', (req, res) => {
   res.status(200);
-  res.json({ message: 'Welcome to Elysium food order service internal API' });
+  res.json({message: 'Welcome to Elysium food order service internal API'});
 });
 
 app.listen(port, hostname, () => {
