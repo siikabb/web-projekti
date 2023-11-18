@@ -26,4 +26,4 @@
 
 ### Diagram for the database
 
-![[elysium_db.png]]
+![Database Diagram](./elysium_db.png)
