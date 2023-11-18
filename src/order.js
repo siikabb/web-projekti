@@ -1,3 +1,4 @@
+// TODO: move mock items either to external file or the sql database
 const meals = [
   {
     meal_id: 0,

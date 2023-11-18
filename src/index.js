@@ -10,7 +10,9 @@ app.get('/api/', (req, res) => {
   res.json({message: 'Welcome to Elysium food order service internal API'});
 });
 
-app.get('/api/order/:id', foodOrderById);
+app.get('/api/meals/:id/order', foodOrderById);
+
+app.post('/api/meals/:id', addMealItem);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
