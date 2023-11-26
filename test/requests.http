@@ -1,3 +1,6 @@
+### GET /api/meals/
+GET http://localhost:3000/api/meals/
+
 ### POST /api/meals/
 POST http://localhost:3000/api/meals/
 

@@ -1,3 +1,11 @@
+const getMealItems = () => {
+  // TODO: make a function for getting meal items
+};
+
+const getMealItemById = () => {
+  // TODO: make a function for getting a singular meal item by id
+};
+
 const addMealItem = (req, res) => {
   // TODO: make a function for adding food items
   console.log(req.body);

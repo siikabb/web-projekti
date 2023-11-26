@@ -1,0 +1,12 @@
+[
+  {
+    "meal_id": 0,
+    "meal_name": "steak",
+    "meal_price": 20.5
+  },
+  {
+    "meal_id": 1,
+    "meal_name": "soup",
+    "meal_price": 12.5
+  }
+]

@@ -1,16 +1,4 @@
-// TODO: move mock items either to external file or the sql database
-const meals = [
-  {
-    meal_id: 0,
-    meal_name: 'steak',
-    meal_price: '20.50',
-  },
-  {
-    meal_id: 1,
-    meal_name: 'soup',
-    meal_price: '12.50',
-  },
-];
+import meals from '../mock-data/meals.json' assert {type: 'json'};
 
 const foodOrderById = (req, res) => {
   const meal = meals.find((element) => element.meal_id == req.params.id);

@@ -1,5 +1,6 @@
 import express from 'express';
-import {foodOrderById} from './order.js';
+import {foodOrderById} from './controllers/order-controller.mjs';
+import {addMealItem} from './controllers/meal-controller.mjs';
 
 const hostname = '127.0.0.1';
 const app = express();
