@@ -1,6 +1,12 @@
 ### GET /api/meals/
 GET http://localhost:3000/api/meals/
 
+### GET /api/meals/:id
+GET http://localhost:3000/api/meals/1
+
+### GET /api/meals/:id error
+GET http://localhost:3000/api/meals/999
+
 ### POST /api/meals/
 POST http://localhost:3000/api/meals/
 
