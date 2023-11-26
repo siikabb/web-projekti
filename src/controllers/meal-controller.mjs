@@ -20,6 +20,7 @@ const getMealItemById = (req, res) => {
 const addMealItem = (req, res) => {
   // TODO: make a function for adding food items
   console.log(req.body);
+  res.status(500); // for the moment, to ensure that server doesn't hang up
 };
 const editMealItem = (req, res) => {
   // TODO: make a function for editing food items
