@@ -5,9 +5,9 @@ const listMealItems = async () => {
     const [rows] = await promisePool.query('SELECT * FROM Products');
     console.log(rows);
     return rows;
-  } catch (error) {
-    console.error('error', error.message);
-    return {error: error.message};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: emessage};
   }
 };
 
@@ -19,10 +19,25 @@ const findMealById = async (id) => {
     );
     console.log(rows[0]);
     return rows[0];
-  } catch (error) {
-    console.error('error', error.message);
-    return {error: error.message};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
   }
 };
 
-export {listMealItems, findMealById};
+// TODO: add model for adding meal items
+const addMealItem = async (meal) => {
+  const {product_name, price, description, image_url} = meal;
+  const sql = `INSERT INTO Products (name, price, description, image_url) VALUES (?, ?, ?, ?)`;
+  const params = [product_name, price, description, image_url];
+  try {
+    const rows = await promisePool.query(sql, params);
+    console.log('rows', rows);
+    return {product_id: rows[0].insertId};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {listMealItems, findMealById, addMealItem};

@@ -9,5 +9,13 @@ GET http://localhost:3000/api/meals/999
 
 ### POST /api/meals/
 POST http://localhost:3000/api/meals/
+content-type: application/json
 
-### POST /api/meals/:id error
+{
+    "product_name": "test",
+    "description": "test",
+    "price": "100.00",
+    "image": "test",
+}
+
+### POST /api/meals/ error

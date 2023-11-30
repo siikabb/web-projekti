@@ -1,5 +1,9 @@
 import meals from '../mock-data/meals.json' assert {type: 'json'};
-import {findMealById, listMealItems} from '../models/meal-model.mjs';
+import {
+  addMealItem,
+  findMealById,
+  listMealItems,
+} from '../models/meal-model.mjs';
 import promisePool from '../utils/database.mjs';
 
 // !!! remember to use async !!!
@@ -25,10 +29,29 @@ const getMealItemById = async (req, res) => {
   }
 };
 
-const addMealItem = (req, res) => {
+// TODO: FIX, currently crashing
+const postMealItem = async (req, res) => {
   // TODO: make a function for adding food items
   console.log(req.body);
-  res.status(500); // for the moment, to ensure that server doesn't hang up
+  const {product_name, price, description, image_url} = req.body;
+  if (product_name & price) {
+    const result = await addMealItem({
+      product_name,
+      price,
+      description,
+      image_url,
+    });
+    if (result.product_id) {
+      res.status(201);
+      res.json({message: 'New meal added', ...result});
+    } else {
+      res.status(500);
+      res.json(result);
+    }
+  } else {
+    res.status(400);
+  }
+  // res.status(500); // for the moment, to ensure that server doesn't hang up
   // TODO: authentication needed to prevent from everyone doing stuff
 };
 
@@ -39,4 +62,4 @@ const deleteMealItem = (req, res) => {
   // TODO: make a function for deleting food items
 };
 
-export {getMealItems, getMealItemById, addMealItem};
+export {getMealItems, getMealItemById, postMealItem};
