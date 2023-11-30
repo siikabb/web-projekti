@@ -1,6 +1,7 @@
 import meals from '../mock-data/meals.json' assert {type: 'json'};
 import {
   addMealItem,
+  editMeal,
   findMealById,
   listMealItems,
 } from '../models/meal-model.mjs';
@@ -49,15 +50,40 @@ const postMealItem = async (req, res) => {
   } else {
     res.sendStatus(400);
   }
-  // res.status(500); // for the moment, to ensure that server doesn't hang up
   // TODO: authentication needed to prevent from everyone doing stuff
 };
 
-const editMealItem = (req, res) => {
+const putMealItem = async (req, res) => {
   // TODO: make a function for editing food items
+  console.log(req.params.id);
+  console.log('putMealItem', req.params.id, req.body);
+  const {product_name, price, description, image_url} = req.body;
+  if (findMealById(req.params.id)) {
+    const result = await editMeal(req.params.id, {
+      product_name,
+      price,
+      description,
+      image_url,
+    });
+    if (result.product_id) {
+      res.status(200);
+      res.json({message: 'Meal edited successfully', ...result});
+    } else {
+      res.status(500);
+      res.json(result);
+    }
+  } else {
+    res.sendStatus(400);
+  }
 };
 const deleteMealItem = (req, res) => {
   // TODO: make a function for deleting food items
 };
 
-export {getMealItems, getMealItemById, postMealItem};
+export {
+  getMealItems,
+  getMealItemById,
+  postMealItem,
+  putMealItem,
+  deleteMealItem,
+};

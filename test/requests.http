@@ -12,8 +12,8 @@ POST http://localhost:3000/api/meals/
 content-type: application/json
 
 {
-    "product_name": "test3",
-    "description": "test description",
+    "product_name": "test5",
+    "description": "test description asd",
     "price": 100.00,
     "image_url": "test"
 }
@@ -26,4 +26,16 @@ content-type: application/json
     "description": "test description",
     "price": 100.00,
     "image_url": "test"
+}
+
+
+### PUT /api/meals/
+PUT http://localhost:3000/api/meals/2
+content-type: application/json
+
+{
+    "product_name": "test_edit",
+    "description": "test description edit",
+    "price": 1.00,
+    "image_url": "test aaaaaa"
 }

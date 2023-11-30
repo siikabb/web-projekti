@@ -25,10 +25,8 @@ const findMealById = async (id) => {
   }
 };
 
-// TODO: add model for adding meal items
 const addMealItem = async (meal) => {
   const {product_name, price, description, image_url} = meal;
-  //   console.log(meal);
   const sql = `INSERT INTO Products (name, price, description, image_url) VALUES (?, ?, ?, ?)`;
   const params = [product_name, price, description, image_url];
   try {
@@ -41,4 +39,19 @@ const addMealItem = async (meal) => {
   }
 };
 
-export {listMealItems, findMealById, addMealItem};
+const editMeal = async (id, meal) => {
+  const {product_name, price, description, image_url} = meal;
+  const sql = `UPDATE Products SET name = ? WHERE product_id = ?`;
+  // TODO: make work properly, currently only edits meal name
+  const params = [product_name, id];
+  try {
+    const rows = await promisePool.query(sql, params);
+    console.log('rows', rows[0]);
+    return {product_id: rows[0]};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {listMealItems, findMealById, addMealItem, editMeal};
