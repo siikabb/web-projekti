@@ -25,16 +25,14 @@ const getMealItemById = async (req, res) => {
   if (result) {
     res.json(result);
   } else {
-    res.status(404);
+    res.sendStatus(404);
   }
 };
 
-// TODO: FIX, currently crashing
 const postMealItem = async (req, res) => {
-  // TODO: make a function for adding food items
-  console.log(req.body);
+  console.log('postMealItem', req.body);
   const {product_name, price, description, image_url} = req.body;
-  if (product_name & price) {
+  if (product_name && price) {
     const result = await addMealItem({
       product_name,
       price,
@@ -49,7 +47,7 @@ const postMealItem = async (req, res) => {
       res.json(result);
     }
   } else {
-    res.status(400);
+    res.sendStatus(400);
   }
   // res.status(500); // for the moment, to ensure that server doesn't hang up
   // TODO: authentication needed to prevent from everyone doing stuff

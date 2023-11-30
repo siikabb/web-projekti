@@ -12,10 +12,18 @@ POST http://localhost:3000/api/meals/
 content-type: application/json
 
 {
-    "product_name": "test",
-    "description": "test",
-    "price": "100.00",
-    "image": "test",
+    "product_name": "test3",
+    "description": "test description",
+    "price": 100.00,
+    "image_url": "test"
 }
 
 ### POST /api/meals/ error
+POST http://localhost:3000/api/meals/
+content-type: application/json
+
+{
+    "description": "test description",
+    "price": 100.00,
+    "image_url": "test"
+}
