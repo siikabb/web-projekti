@@ -1,12 +1,12 @@
 import meals from '../mock-data/meals.json' assert {type: 'json'};
 
 const getMealItems = (req, res) => {
-  // TODO: make a function for getting meal items
+  // make a function for getting meal items
   res.json(meals);
 };
 
 const getMealItemById = (req, res) => {
-  // TODO: make a function for getting a singular meal item by id
+  // make a function for getting a singular meal item by id
   console.log(req.params);
   const meal = meals.find((element) => element.meal_id == req.params.id);
   if (meal) {
@@ -21,7 +21,9 @@ const addMealItem = (req, res) => {
   // TODO: make a function for adding food items
   console.log(req.body);
   res.status(500); // for the moment, to ensure that server doesn't hang up
+  // TODO: integrate SQL before doing this to prevent pointless extra work
 };
+
 const editMealItem = (req, res) => {
   // TODO: make a function for editing food items
 };
