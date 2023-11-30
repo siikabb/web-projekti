@@ -1,19 +1,27 @@
 import meals from '../mock-data/meals.json' assert {type: 'json'};
+import {findMealById, listMealItems} from '../models/meal-model.mjs';
+import promisePool from '../utils/database.mjs';
 
-const getMealItems = (req, res) => {
-  // make a function for getting meal items
-  res.json(meals);
+// !!! remember to use async !!!
+
+const getMealItems = async (req, res) => {
+  // function for getting meal items
+  const result = await listMealItems();
+  if (!result.error) {
+    res.json(result);
+  } else {
+    res.status(500);
+    res.json(result);
+  }
 };
 
-const getMealItemById = (req, res) => {
-  // make a function for getting a singular meal item by id
-  console.log(req.params);
-  const meal = meals.find((element) => element.meal_id == req.params.id);
-  if (meal) {
-    res.json(meal);
+const getMealItemById = async (req, res) => {
+  // function for getting a singular meal item by id
+  const result = await findMealById(req.params.id);
+  if (result) {
+    res.json(result);
   } else {
     res.status(404);
-    res.json({message: 'Invalid id'});
   }
 };
 
@@ -21,7 +29,7 @@ const addMealItem = (req, res) => {
   // TODO: make a function for adding food items
   console.log(req.body);
   res.status(500); // for the moment, to ensure that server doesn't hang up
-  // TODO: integrate SQL before doing this to prevent pointless extra work
+  // TODO: authentication needed to prevent from everyone doing stuff
 };
 
 const editMealItem = (req, res) => {
