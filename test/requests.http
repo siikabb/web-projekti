@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/meals/
 
 ### GET /api/meals/:id
-GET http://localhost:3000/api/meals/1
+GET http://localhost:3000/api/meals/2
 
 ### GET /api/meals/:id error
 GET http://localhost:3000/api/meals/999
@@ -34,8 +34,13 @@ PUT http://localhost:3000/api/meals/2
 content-type: application/json
 
 {
-    "product_name": "test_edit",
-    "description": "test description edit",
-    "price": 1.00,
-    "image_url": "test aaaaaa"
+    "product_name": "test_edit 67",
+    "description": "test description asd",
+    "image_url": "3 aaaadwqaa"
 }
+
+### DELETE /api/meals/
+DELETE http://localhost:3000/api/meals/7
+
+### DELETE /api/meals/ error
+DELETE http://localhost:3000/api/meals/999

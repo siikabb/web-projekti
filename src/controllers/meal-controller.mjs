@@ -4,6 +4,7 @@ import {
   editMeal,
   findMealById,
   listMealItems,
+  removeProduct,
 } from '../models/meal-model.mjs';
 import promisePool from '../utils/database.mjs';
 
@@ -54,7 +55,6 @@ const postMealItem = async (req, res) => {
 };
 
 const putMealItem = async (req, res) => {
-  // TODO: make a function for editing food items
   console.log(req.params.id);
   console.log('putMealItem', req.params.id, req.body);
   const {product_name, price, description, image_url} = req.body;
@@ -73,11 +73,23 @@ const putMealItem = async (req, res) => {
       res.json(result);
     }
   } else {
-    res.sendStatus(400);
+    res.sendStatus(404);
   }
 };
-const deleteMealItem = (req, res) => {
-  // TODO: make a function for deleting food items
+
+const deleteProduct = async (req, res) => {
+  if (findMealById(req.params.id)) {
+    const result = await removeProduct(req.params.id);
+    if (result.product_id) {
+      res.status(200);
+      res.json({message: 'Product deleted successfully', ...result});
+    } else {
+      res.status(500);
+      res.json(result);
+    }
+  } else {
+    res.sendStatus(404);
+  }
 };
 
 export {
@@ -85,5 +97,5 @@ export {
   getMealItemById,
   postMealItem,
   putMealItem,
-  deleteMealItem,
+  deleteProduct,
 };

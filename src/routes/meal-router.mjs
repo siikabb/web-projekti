@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  deleteMealItem,
+  deleteProduct,
   getMealItemById,
   getMealItems,
   postMealItem,
@@ -17,6 +17,6 @@ mealRouter
   .route('/:id/')
   .get(getMealItemById)
   .put(putMealItem)
-  .delete(deleteMealItem);
+  .delete(deleteProduct);
 
 export {mealRouter};
