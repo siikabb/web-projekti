@@ -1,14 +1,14 @@
-### GET /api/meals/
-GET http://localhost:3000/api/meals/
+### GET /api/products/
+GET http://localhost:3000/api/products/
 
-### GET /api/meals/:id
-GET http://localhost:3000/api/meals/2
+### GET /api/products/:id
+GET http://localhost:3000/api/products/2
 
-### GET /api/meals/:id error
-GET http://localhost:3000/api/meals/999
+### GET /api/products/:id error
+GET http://localhost:3000/api/products/999
 
-### POST /api/meals/
-POST http://localhost:3000/api/meals/
+### POST /api/products/
+POST http://localhost:3000/api/products/
 content-type: application/json
 
 {
@@ -18,8 +18,8 @@ content-type: application/json
     "image_url": "test"
 }
 
-### POST /api/meals/ error
-POST http://localhost:3000/api/meals/
+### POST /api/products/ error
+POST http://localhost:3000/api/products/
 content-type: application/json
 
 {
@@ -29,8 +29,8 @@ content-type: application/json
 }
 
 
-### PUT /api/meals/
-PUT http://localhost:3000/api/meals/2
+### PUT /api/products/
+PUT http://localhost:3000/api/products/2
 content-type: application/json
 
 {
@@ -39,8 +39,8 @@ content-type: application/json
     "image_url": "3 aaaadwqaa"
 }
 
-### DELETE /api/meals/
-DELETE http://localhost:3000/api/meals/7
+### DELETE /api/products/
+DELETE http://localhost:3000/api/products/7
 
-### DELETE /api/meals/ error
-DELETE http://localhost:3000/api/meals/999
+### DELETE /api/products/ error
+DELETE http://localhost:3000/api/products/999

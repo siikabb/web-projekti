@@ -1,18 +1,17 @@
-import meals from '../mock-data/meals.json' assert {type: 'json'};
 import {
-  addMealItem,
-  editMeal,
-  findMealById,
-  listMealItems,
+  addProduct,
+  editProduct,
+  findProductById,
+  listProducts,
   removeProduct,
-} from '../models/meal-model.mjs';
+} from '../models/product-model.mjs';
 import promisePool from '../utils/database.mjs';
 
 // !!! remember to use async !!!
 
-const getMealItems = async (req, res) => {
-  // function for getting meal items
-  const result = await listMealItems();
+const getProducts = async (req, res) => {
+  // function for getting products
+  const result = await listProducts();
   if (!result.error) {
     res.json(result);
   } else {
@@ -21,9 +20,9 @@ const getMealItems = async (req, res) => {
   }
 };
 
-const getMealItemById = async (req, res) => {
-  // function for getting a singular meal item by id
-  const result = await findMealById(req.params.id);
+const getProductById = async (req, res) => {
+  // function for getting a singular product by id
+  const result = await findProductById(req.params.id);
   if (result) {
     res.json(result);
   } else {
@@ -31,11 +30,11 @@ const getMealItemById = async (req, res) => {
   }
 };
 
-const postMealItem = async (req, res) => {
-  console.log('postMealItem', req.body);
+const postProduct = async (req, res) => {
+  console.log('postProduct', req.body);
   const {product_name, price, description, image_url} = req.body;
   if (product_name && price) {
-    const result = await addMealItem({
+    const result = await addProduct({
       product_name,
       price,
       description,
@@ -43,7 +42,7 @@ const postMealItem = async (req, res) => {
     });
     if (result.product_id) {
       res.status(201);
-      res.json({message: 'New meal added', ...result});
+      res.json({message: 'New product added', ...result});
     } else {
       res.status(500);
       res.json(result);
@@ -54,12 +53,12 @@ const postMealItem = async (req, res) => {
   // TODO: authentication needed to prevent from everyone doing stuff
 };
 
-const putMealItem = async (req, res) => {
+const putProduct = async (req, res) => {
   console.log(req.params.id);
-  console.log('putMealItem', req.params.id, req.body);
+  console.log('putProduct', req.params.id, req.body);
   const {product_name, price, description, image_url} = req.body;
-  if (findMealById(req.params.id)) {
-    const result = await editMeal(req.params.id, {
+  if (findProductById(req.params.id)) {
+    const result = await editProduct(req.params.id, {
       product_name,
       price,
       description,
@@ -67,7 +66,7 @@ const putMealItem = async (req, res) => {
     });
     if (result.product_id) {
       res.status(200);
-      res.json({message: 'Meal edited successfully', ...result});
+      res.json({message: 'Product edited successfully', ...result});
     } else {
       res.status(500);
       res.json(result);
@@ -78,7 +77,7 @@ const putMealItem = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  if (findMealById(req.params.id)) {
+  if (findProductById(req.params.id)) {
     const result = await removeProduct(req.params.id);
     if (result.product_id) {
       res.status(200);
@@ -92,10 +91,4 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-export {
-  getMealItems,
-  getMealItemById,
-  postMealItem,
-  putMealItem,
-  deleteProduct,
-};
+export {getProducts, getProductById, postProduct, putProduct, deleteProduct};

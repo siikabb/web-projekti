@@ -1,6 +1,6 @@
 import promisePool from '../utils/database.mjs';
 
-const listMealItems = async () => {
+const listProducts = async () => {
   try {
     const [rows] = await promisePool.query('SELECT * FROM Products');
     console.log(rows);
@@ -11,7 +11,7 @@ const listMealItems = async () => {
   }
 };
 
-const findMealById = async (id) => {
+const findProductById = async (id) => {
   try {
     const [rows] = await promisePool.query(
       'SELECT * FROM Products WHERE product_id = ?',
@@ -25,8 +25,8 @@ const findMealById = async (id) => {
   }
 };
 
-const addMealItem = async (meal) => {
-  const {product_name, price, description, image_url} = meal;
+const addProduct = async (product) => {
+  const {product_name, price, description, image_url} = product;
   const sql = `INSERT INTO Products (name, price, description, image_url) VALUES (?, ?, ?, ?)`;
   const params = [product_name, price, description, image_url];
   try {
@@ -39,8 +39,8 @@ const addMealItem = async (meal) => {
   }
 };
 
-const editMeal = async (id, meal) => {
-  const {product_name, price, description, image_url} = meal;
+const editProduct = async (id, product) => {
+  const {product_name, price, description, image_url} = product;
   // const sql = `UPDATE Products SET name = ?, price = ?, description = ?, image_url = ? WHERE product_id = ?`;
   // const params = [product_name, price, description, image_url, id];
   let sql = 'UPDATE Products SET ';
@@ -88,4 +88,4 @@ const removeProduct = async (id) => {
   }
 };
 
-export {listMealItems, findMealById, addMealItem, editMeal, removeProduct};
+export {listProducts, findProductById, addProduct, editProduct, removeProduct};

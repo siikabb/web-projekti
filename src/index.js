@@ -1,7 +1,5 @@
 import express from 'express';
-// import {foodOrderById} from './controllers/order-controller.mjs';
-// import {addMealItem} from './controllers/meal-controller.mjs';
-import {mealRouter} from './routes/meal-router.mjs';
+import {productRouter} from './routes/product-router.mjs';
 
 const hostname = '127.0.0.1';
 const app = express();
@@ -14,8 +12,8 @@ app.get('/api/', (req, res) => {
   res.json({message: 'Welcome to Elysium food order service internal API'});
 });
 
-// meal endpoints
-app.use('/api/meals/', mealRouter);
+// product endpoints
+app.use('/api/products/', productRouter);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
