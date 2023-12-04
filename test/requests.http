@@ -44,3 +44,16 @@ DELETE http://localhost:3000/api/products/7
 
 ### DELETE /api/products/ error
 DELETE http://localhost:3000/api/products/999
+
+### POST login
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "email": "test@metropolia.fi",
+    "password": "test"
+}
+
+### GET my user info
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJvciI6InByb21pc2VQb29sIGlzIG5vdCBkZWZpbmVkIiwiaWF0IjoxNzAxNjc4NDY3LCJleHAiOjE3MDE3NjQ4Njd9.oljHdX3KLX3hV98wjtoNTssc_BAt1-QrvWek-YGJUUI

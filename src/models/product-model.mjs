@@ -7,7 +7,7 @@ const listProducts = async () => {
     return rows;
   } catch (e) {
     console.error('error', e.message);
-    return {error: emessage};
+    return {error: e.message};
   }
 };
 
