@@ -3,10 +3,10 @@
 
 import promisePool from '../utils/database.mjs';
 
-const login = async (user) => {
+const login = async (email) => {
   try {
-    const sql = `SELECT user_id, user_level FROM Users WHERE email = ? AND password = ?`;
-    const params = [user.email, user.password];
+    const sql = `SELECT user_id, password, user_level FROM Users WHERE email = ?`;
+    const params = [email];
     const result = await promisePool.query(sql, params);
     const [rows] = result;
     return rows[0];
@@ -17,7 +17,7 @@ const login = async (user) => {
 };
 
 const addUser = async (userData) => {
-  // TODO: add user data to the db
+  // add user data to the db
   try {
     const sql = `INSERT INTO Users (email, password, user_level) VALUES (?, ?, ?)`;
     // user level defaults to 2

@@ -50,21 +50,30 @@ POST http://localhost:3000/api/auth/login
 content-type: application/json
 
 {
-    "email": "abc@aa.de",
-    "password": "test"
+    "email": "newtester@metropolia.fi",
+    "password": "mostsecurepassword"
+}
+
+### POST login error
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "email": "newtester@metropolia.fi",
+    "password": "wrongpassword"
 }
 
 ### GET my user info
 GET http://localhost:3000/api/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDE3NjEwMTIsImV4cCI6MTcwMTg0NzQxMn0.1u5OpLvR_Aly4OI-lJCNdZS4MoVf0TYnH6UOZS2JIls
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDE3NjQ1MjQsImV4cCI6MTcwMTg1MDkyNH0.8PKF64z2BGT7B04_yfEH8kldgv8jj8TtT9hh83xLgpc
 
 ### POST register
 POST http://localhost:3000/api/users/
 content-type: application/json
 
 {
-    "email": "testing222@metropolia.fi",
-    "password": "test123e325r"
+    "email": "newtester@metropolia.fi",
+    "password": "mostsecurepassword"
 }
 
 ### POST register error
