@@ -50,10 +50,10 @@ POST http://localhost:3000/api/auth/login
 content-type: application/json
 
 {
-    "email": "test@metropolia.fi",
+    "email": "abc@aa.de",
     "password": "test"
 }
 
 ### GET my user info
 GET http://localhost:3000/api/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJvciI6InByb21pc2VQb29sIGlzIG5vdCBkZWZpbmVkIiwiaWF0IjoxNzAxNjc4NDY3LCJleHAiOjE3MDE3NjQ4Njd9.oljHdX3KLX3hV98wjtoNTssc_BAt1-QrvWek-YGJUUI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDE3NjEwMTIsImV4cCI6MTcwMTg0NzQxMn0.1u5OpLvR_Aly4OI-lJCNdZS4MoVf0TYnH6UOZS2JIls

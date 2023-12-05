@@ -4,6 +4,7 @@ import {login} from '../models/user-model.mjs';
 import promisePool from '../utils/database.mjs';
 
 const postLogin = async (req, res) => {
+  // returns a bearer token if login information is correct
   console.log('postLogin', req.body);
   const user = await login(req.body);
   if (user) {
@@ -15,8 +16,7 @@ const postLogin = async (req, res) => {
 };
 
 const getMe = async (req, res) => {
-  // TODO: currently returns promisePool is not defined for some reason
-  // TODO: fix authorization to work properly
+  // gets userdata from a bearer token
   console.log('getMe', req.user);
   if (req.user) {
     res.json({message: 'token ok', user: req.user});
