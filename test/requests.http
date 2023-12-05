@@ -57,3 +57,21 @@ content-type: application/json
 ### GET my user info
 GET http://localhost:3000/api/auth/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDE3NjEwMTIsImV4cCI6MTcwMTg0NzQxMn0.1u5OpLvR_Aly4OI-lJCNdZS4MoVf0TYnH6UOZS2JIls
+
+### POST register
+POST http://localhost:3000/api/users/
+content-type: application/json
+
+{
+    "email": "testing222@metropolia.fi",
+    "password": "test123e325r"
+}
+
+### POST register error
+POST http://localhost:3000/api/users/
+content-type: application/json
+
+{
+    "email": "realemail@gmail.com",
+    "password": "321"
+}

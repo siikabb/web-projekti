@@ -1,6 +1,7 @@
 import express from 'express';
 import {productRouter} from './routes/product-router.mjs';
 import {authRouter} from './routes/auth-router.mjs';
+import {userRouter} from './routes/user-router.mjs';
 
 const hostname = '127.0.0.1';
 const app = express();
@@ -17,6 +18,7 @@ app.get('/api/', (req, res) => {
 // product endpoints
 app.use('/api/products/', productRouter);
 app.use('/api/auth/', authRouter);
+app.use('/api/users/', userRouter);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

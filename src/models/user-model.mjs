@@ -18,6 +18,16 @@ const login = async (user) => {
 
 const addUser = async (userData) => {
   // TODO: add user data to the db
+  try {
+    const sql = `INSERT INTO Users (email, password, user_level) VALUES (?, ?, ?)`;
+    // user level defaults to 2
+    const params = [userData.email, userData.password, 2];
+    const result = await promisePool.query(sql, params);
+    return result[0].insertId;
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
 };
 
-export {login};
+export {login, addUser};
