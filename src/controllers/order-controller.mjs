@@ -1,16 +1,17 @@
-import meals from '../mock-data/meals.json' assert {type: 'json'};
-
-const foodOrderById = (req, res) => {
-  const meal = meals.find((element) => element.meal_id == req.params.id);
-  if (meal) {
-    res.status(200);
-    console.log('Food order', req.params.id);
-    res.json({message: `Order registered successfully`, meal});
-  } else {
-    res.status(404);
-    console.log('Incorrect meal id');
-    res.json({message: 'Incorrect meal id'});
-  }
+const postOrder = async (req, res) => {
+  // creates an new order
 };
 
-export {foodOrderById};
+const postOrderById = async (req, res) => {
+  // sends an existing order to be done, changes the order status etc
+};
+
+const getOrders = async (req, res) => {
+  // gets existing orders
+};
+
+const getOrderById = async (req, res) => {
+  // gets a singular order (and probably its cart) by id
+};
+
+export {postOrder, postOrderById, getOrders, getOrderById};
