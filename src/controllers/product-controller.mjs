@@ -33,7 +33,9 @@ const getProductById = async (req, res) => {
 const postProduct = async (req, res) => {
   console.log('postProduct', req.body);
   const {product_name, price, description, image_url} = req.body;
-  if (product_name && price) {
+  if (req.user.user_level !== 0) {
+    res.sendStatus(403);
+  } else if (product_name && price) {
     const result = await addProduct({
       product_name,
       price,
@@ -50,14 +52,17 @@ const postProduct = async (req, res) => {
   } else {
     res.sendStatus(400);
   }
-  // TODO: authentication needed to prevent from everyone doing stuff
+  // TODO: authorization needed to prevent from everyone doing stuff
 };
 
 const putProduct = async (req, res) => {
   console.log(req.params.id);
   console.log('putProduct', req.params.id, req.body);
   const {product_name, price, description, image_url} = req.body;
-  if (findProductById(req.params.id)) {
+
+  if (req.user.user_level !== 0) {
+    res.sendStatus(403);
+  } else if (findProductById(req.params.id)) {
     const result = await editProduct(req.params.id, {
       product_name,
       price,
@@ -77,7 +82,9 @@ const putProduct = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-  if (findProductById(req.params.id)) {
+  if (req.user.user_level !== 0) {
+    res.sendStatus(403);
+  } else if (findProductById(req.params.id)) {
     const result = await removeProduct(req.params.id);
     if (result.product_id) {
       res.status(200);

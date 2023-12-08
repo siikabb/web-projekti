@@ -10,6 +10,7 @@ GET http://localhost:3000/api/products/999
 ### POST /api/products/
 POST http://localhost:3000/api/products/
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDIwMjkyNDksImV4cCI6MTcwMjExNTY0OX0.Y6OSbFbiO88pTJrP71WPyjHs6_4K5yHdFWq3T-01PBw
 
 {
     "product_name": "test5",
@@ -65,7 +66,7 @@ content-type: application/json
 
 ### GET my user info
 GET http://localhost:3000/api/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1LCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDE3NjQ1MjQsImV4cCI6MTcwMTg1MDkyNH0.8PKF64z2BGT7B04_yfEH8kldgv8jj8TtT9hh83xLgpc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDIwMjkyNDksImV4cCI6MTcwMjExNTY0OX0.Y6OSbFbiO88pTJrP71WPyjHs6_4K5yHdFWq3T-01PBw
 
 ### POST register
 POST http://localhost:3000/api/users/

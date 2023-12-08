@@ -6,17 +6,18 @@ import {
   postProduct,
   putProduct,
 } from '../controllers/product-controller.mjs';
+import {authenticateToken} from '../middlewares/authentication.mjs';
 
 const productRouter = express.Router();
 
 // routes for /api/products/
-productRouter.route('/').get(getProducts).post(postProduct);
+productRouter.route('/').get(getProducts).post(authenticateToken, postProduct);
 
 // routes for /api/products/:id/
 productRouter
   .route('/:id/')
   .get(getProductById)
-  .put(putProduct)
-  .delete(deleteProduct);
+  .put(authenticateToken, putProduct)
+  .delete(authenticateToken, deleteProduct);
 
 export {productRouter};
