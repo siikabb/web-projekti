@@ -52,7 +52,6 @@ const postProduct = async (req, res) => {
   } else {
     res.sendStatus(400);
   }
-  // TODO: authorization needed to prevent from everyone doing stuff
 };
 
 const putProduct = async (req, res) => {

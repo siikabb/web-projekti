@@ -12,4 +12,15 @@ const createOrder = async (user_id) => {
   }
 };
 
-export {createOrder};
+const listOrders = async () => {
+  try {
+    const sql = `SELECT * FROM Orders`;
+    const [rows] = await promisePool.query(sql);
+    return rows;
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {createOrder, listOrders};

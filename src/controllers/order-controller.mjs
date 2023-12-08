@@ -1,4 +1,4 @@
-import {createOrder} from '../models/order-model.mjs';
+import {createOrder, listOrders} from '../models/order-model.mjs';
 
 const postOrder = async (req, res) => {
   if (!req.user) {
@@ -19,7 +19,12 @@ const postOrderById = async (req, res) => {
 };
 
 const getOrders = async (req, res) => {
-  // gets existing orders
+  const result = await listOrders();
+  if (!result.error) {
+    res.json(result);
+  } else {
+    res.sendStatus(500);
+  }
 };
 
 const getOrderById = async (req, res) => {
