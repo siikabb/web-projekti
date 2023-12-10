@@ -9,32 +9,37 @@
     <title>Login Modal</title>
  </head>
  <body>
-    <div> MoDAL StArT</div>
+        <div>
+                <!-- Trigger/Open The Modal -->
+            <button id="open-modal-btn">
+                <i class="fa fa-bookmark" aria-hidden="true"></i>
+            </button>
 
-    <!-- Trigger/Open The Modal -->
-    <button id="open-modal-btn">
-        <i class="fa fa-bookmark" aria-hidden="true"></i>
-    </button>
+            <!-- The Modal -->
+            <div id="loginModal" class="loginModal">
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <!-- Close the modal button X -->
+                    <span class="close">&times;</span>
+                    <!-- Login form -->
+                    <form id="user-login" action="/login" method="post">
+                        <label for="userName">
+                            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                            <input type="text" id="userName" name="username" placeholder="Username">
+                        </label>
+                        <label for="userPassword">
+                            <i class="fa fa-key fa-lg" aria-hidden="true"> </i>
+                            <input type="password" id="userPassword" name="password" placeholder=" Password">
+                        </label>      
+                            <input type="submit" id="submit" value="Login">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
+                    </form>
+                    
+                </div>
 
-        <form class="user-login" action="/To be Added">
-            <label for="Username">Username:</label><br>
-            <input type="text" id="userName" value=""><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="userPassword" value=""><br><br>
-            <input type="submit" value="Submit">
-          </form>
-    </div>
-
-    </div>
-
-MoDaL eNd</div>
+            </div>
+        </div>
 
 <script src="login.js"></script>    
  </body>

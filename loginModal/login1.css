@@ -1,5 +1,5 @@
 /* The Modal (background) */
-.modal {
+.loginModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -10,23 +10,30 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
   }
   
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 20%; /* Could be more or less, depending on screen size */
+    background-image: url(./most_wanted_forloginform.jpeg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 500px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
   }
-  
   /* The Close Button */
   .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
+    margin-left: 95%;
   }
   
   .close:hover,
@@ -44,4 +51,44 @@
 }
 #open-modal-btn i {
     text-decoration: none;
+}
+#user-login{
+  margin-top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+input {
+  width: 120px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 5px dashed #5e1008;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: transparent;
+  transition: width 0.8s ease-in-out;
+}
+input:focus {
+  width: 50%;
+}
+input::placeholder {
+  color: transparent; /* Make the text transparent */
+  background: linear-gradient(to right, #5e1008, #8b4513); /* Dark to light brown gradient */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  background-clip: text;
+}
+
+label i {
+  margin-top: 1px;
+  position: absolute;
+  background: linear-gradient(to right, #5e1008, #8b4513); /* Use the same gradient as the placeholder text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Style the input to create space for the icon */
+label input {
+  padding-left: 30px; /* Adjust as needed to create space for the icon */
 }
