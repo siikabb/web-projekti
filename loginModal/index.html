@@ -35,11 +35,70 @@
                             <input type="submit" id="submit" value="Login">
 
                     </form>
+                    <div class="register-div">
+                        <p class="register-text">IF YOU'RE NOT REGISTERED IN OUR SYSTEM, SIGN UP HERE NOW.</p>
+                        <button class="register-button ">
+                            <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                        </button>
+
+                    </div>
+
                     
                 </div>
 
             </div>
         </div>
+
+        <div>
+        <!-- The Modal -->
+        <div id="registerModal" class="loginModal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <!-- Close the modal button X -->
+                <span class="close">&times;</span>
+                <!-- register form -->
+                <form id="user-register" action="/register" method="post">
+                    <label for="firstName">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"> </i>
+                        <input type="text" id="firstName" name="firstName" placeholder="First name">
+                    </label> 
+                    <label for="lastName">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"> </i>
+                        <input type="text" id="lastName" name="lastName" placeholder="Last name">
+                    </label> 
+                    <label for="userName">
+                        <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                        <input type="text" id="userName" name="username" placeholder="Username">
+                    </label>
+                    <label for="userPassword">
+                        <i class="fa fa-key fa-lg" aria-hidden="true"> </i>
+                        <input type="password" id="userPassword" name="password" placeholder=" Password">
+                    </label>
+                    <label for="userEmai">
+                        <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                        <input type="email" id="userEmai" name="email" placeholder="Email">
+                    </label> 
+                    <label for="userNumber">
+                        <i class="fa fa-phone fa-lg" aria-hidden="true"> </i>
+                        <input type="tel" id="userNumber" name="number" placeholder="Phone number">
+                    </label>  
+                    <label for="userAddress">
+                        <i class="fa fa-home fa-lg" aria-hidden="true"> </i>
+                        <input type="text" id="userAddress" name="address" placeholder="Address">
+                    </label> 
+                    <label for="userImage">
+                        <i class="fa fa-image fa-lg" aria-hidden="true"></i>
+                        <input type="file" id="userImage" name="image" accept="image/*">
+                    </label> 
+                        <input type="submit" id="submit" value="Register">
+
+                </form>
+                
+            </div>
+
+        </div>
+    </div>
 
 <script src="login.js"></script>    
  </body>
