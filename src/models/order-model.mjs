@@ -23,4 +23,17 @@ const listOrders = async () => {
   }
 };
 
-export {createOrder, listOrders};
+const findOrderCart = async (order_id) => {
+  try {
+    let sql = `SELECT * FROM Orders WHERE order_id = ?`;
+    let [rows] = await promisePool.query(sql, [order_id]);
+    sql = `SELECT product_id FROM Cart WHERE order_id = ?`;
+    rows.push((await promisePool.query(sql, [order_id]))[0]);
+    return rows;
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {createOrder, listOrders, findOrderCart};

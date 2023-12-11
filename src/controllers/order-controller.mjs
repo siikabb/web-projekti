@@ -1,4 +1,8 @@
-import {createOrder, listOrders} from '../models/order-model.mjs';
+import {
+  createOrder,
+  findOrderCart,
+  listOrders,
+} from '../models/order-model.mjs';
 
 const postOrder = async (req, res) => {
   if (!req.user) {
@@ -28,7 +32,12 @@ const getOrders = async (req, res) => {
 };
 
 const getOrderById = async (req, res) => {
-  // gets a singular order (and probably its cart) by id
+  const result = await findOrderCart(req.params.id);
+  if (!result.error) {
+    res.json(result);
+  } else {
+    res.sendStatus(500);
+  }
 };
 
 export {postOrder, postOrderById, getOrders, getOrderById};
