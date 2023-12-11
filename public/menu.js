@@ -17,27 +17,27 @@ const closeMenu = () => {
   container.classList.add('rm-open2');
   // container.classList.remove('rm-open');
   // container.classList.remove('rm-open');
-  console.log('closed');
+  // console.log('closed');
 };
 
 const closeMenu2 = () => {
   container.classList.remove('rm-open');
-  signbutton.classList.remove('hidebutton');
-  loginbutton.classList.remove('hidebutton');
-  console.log('test2');
+  // signbutton.classList.remove('hidebutton');
+  // loginbutton.classList.remove('hidebutton');
+  // console.log('test2');
 };
 
 const menuToBack = () => {
   container.classList.remove('rm-open2');
 };
 
-loginbutton.addEventListener('click', () => {
-  console.log('login');
-});
+// loginbutton.addEventListener('click', () => {
+//   console.log('login');
+// });
 
 openButton.addEventListener('click', () => {
   openMenu();
-  hideButtons();
+  // hideButtons();
 });
 
 closeButton.addEventListener('click', () => {
@@ -52,29 +52,29 @@ menuBack.addEventListener('click', () => {
   menuToBack();
 });
 
-const hideButtons = () => {
-  signbutton.classList.add('hidebutton');
-  loginbutton.classList.add('hidebutton');
-};
+// const hideButtons = () => {
+//   signbutton.classList.add('hidebutton');
+//   loginbutton.classList.add('hidebutton');
+// };
 
-const dt = document.querySelectorAll('dt');
+// const dt = document.querySelectorAll('dt');
 
-var modal = document.getElementById('myModal');
+// var modal = document.getElementById('myModal');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName('close')[0];
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName('close')[0];
 
-dt.forEach(function (dt) {
-  // Do something with each button, for example, add an event listener
-  dt.addEventListener('click', function () {
-    console.log('teest');
-    modal.style.display = 'block';
-  });
-});
+// dt.forEach(function (dt) {
+//   // Do something with each button, for example, add an event listener
+//   dt.addEventListener('click', function () {
+//     // console.log('teest');
+//     modal.style.display = 'block';
+//   });
+// });
 
-span.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+// span.addEventListener('click', () => {
+//   modal.style.display = 'none';
+// });
 
 // rm-in class adding and removing is missing
 

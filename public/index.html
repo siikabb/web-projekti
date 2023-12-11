@@ -7,11 +7,80 @@
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="login1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="normalize.css"> -->
     <script src="menu.js" defer></script>
+    <script src="login.js" defer></script>
 </head>
 
 <body id="ex1">
+<<<<<<< HEAD:public/index.html
+=======
+    
+
+
+    <div id="loginModal" class="loginModal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Close the modal button X -->
+            <span class="close">&times;</span>
+            
+            <!-- Login form -->
+            <form id="user-login" action="/login" method="post">
+                <label for="userName">
+                    <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                    <input type="text" id="userName" name="username" placeholder="Email">
+                </label>
+                <label for="userPassword">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
+                    <input type="password" id="userPassword" name="password" placeholder=" Password">
+                </label>      
+                    <input type="submit" id="submit" value="Login">
+
+            </form>
+            <div class="register-div">
+                <p class="register-text">IF YOU'RE NOT REGISTERED IN OUR SYSTEM, SIGN UP HERE NOW.</p>
+                <button class="register-button ">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                </button>
+
+            </div>
+
+            
+        </div>
+
+    </div>
+
+
+
+    <div id="registerModal" class="loginModal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Close the modal button X -->
+            <span class="close">&times;</span>
+            <!-- register form -->
+            <form id="user-register" action="/register" method="post">
+                <label for="userName">
+                    <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                    <input type="text" id="userName" name="username" placeholder="Username">
+                </label>
+                <label for="userPassword">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
+                    <input type="password" id="userPassword" name="password" placeholder=" Password">
+                </label>
+                    <input type="submit" id="submit" value="Register">
+
+            </form>
+            
+        </div>
+
+    </div>
+
+
+>>>>>>> front-end2:public/main.html
 
     <div id="myModal" class="modal">
 
@@ -33,8 +102,8 @@
         <label for="modebutton" id="modetext">Dark Mode</label>
     </div> -->
 
-    <button class="signbutton">sign up</button>
-    <button class="loginbutton">log in</button>
+    <!-- <button class="signbutton">sign up</button>
+    <button class="loginbutton">log in</button> -->
 
     <section class="main">
 
@@ -46,22 +115,34 @@
                 <div class="rm-wrapper">
 
                     <div class="rm-cover">
-
+        
                         <div class="rm-front">
+                            
                             <div class="rm-content">
 
                                 <div class="rm-logo"></div>
                                 <h2>Elysium</h2>
                                 <hr>
-                                <h3>Fine Dining &amp; Delivery</h3>
+                                <h3 style="letter-spacing: 2px;">Fine Dining &amp; Delivery</h3>
 
                                 <a href="#" class="rm-button-open">OPEN MENU</a>
                                 <div class="rm-info">
                                     <p>
+<<<<<<< HEAD:public/index.html
                                         <strong>Elysium Restaurant</strong><br>
                                         Albertinkatu 31<br>
                                         00180 Helsinki<br>
                                         <strong>Puh.</strong> +35889798665<br>
+=======
+                                    Restaurant Elysium<br>
+                                    Albertinkatu 31<br>
+                                    00180 Helsinki<br>
+                                    <!-- <strong>Puh.</strong> +35889798665<br> -->
+                                </div>
+                                <div class="options">
+                                    <button class="darkmode">Dark Mode</button>
+                                    <button class="login" id="open-modal-btn">Sign In / Up</button>
+>>>>>>> front-end2:public/main.html
                                 </div>
 
                             </div><!-- /rm-content -->
