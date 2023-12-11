@@ -31,13 +31,24 @@ window.onclick = function(event) {
     registerModal.style.display = "none"; // Close the register modal as well
   }
 };
-// validate user input
-function loginForm() {
-  // Get form elements by their IDs
-  const usernameInput = document.getElementById("userName");
-  const passwordInput = document.getElementById("userPassword");
+const submitBtn = document.getElementById("submit");
 
-  // Get values from the form elements
-  const usernameValue = usernameInput.value;
-  const passwordValue = passwordInput.value;
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const registerForm = document.getElementById('user-register');
+
+  registerForm.addEventListener('submit', async (event) => {
+
+    try {
+      if (response.ok) {
+        // Reset the form on successful response
+        registerForm.reset();
+        alert('Form submitted successfully!');
+      } else {
+        // Handle other responses or errors
+        alert('Form submission failed.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
+});

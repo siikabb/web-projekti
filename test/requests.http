@@ -1,0 +1,62 @@
+### GET /
+GET http://localhost:3000/
+
+### Get all media items
+GET http://localhost:3000/media
+
+### POST item to media
+POST http://localhost:3000/media
+Content-Type: application/json
+
+{
+      "filename": "0.jpg",
+      "title": "Zero",
+      "description": "First item added"
+}
+
+### GET Item from media by id
+GET http://localhost:3000/media/1
+
+### Put item by id works
+PUT http://localhost:3000/media/0
+content-type: application/json
+
+{
+  "title": "New TTTTTTTTTTTT"
+}
+
+### DELETE item by id works
+DELETE http://localhost:3000/media/0
+
+### USERS ###
+### GET all users Works
+GET http://localhost:3000/user
+
+### GET user by id works
+GET http://localhost:3000/user/260
+
+### POST /user works
+POST http://localhost:3000/user
+content-type: application/json
+
+  {
+    "user_id": 0,
+    "username": "updated username",
+    "password": "updated password",
+    "email": "vchar@example.com",
+    "user_level_id": 1,
+    "created_at": "2020-09-12T06:56:41.000Z"
+  }
+
+
+### PUT /user/:id Worked!
+PUT http://localhost:3000/user/260
+content-type: application/json
+
+{
+    "username": "updated username",
+    "password": "updated password"
+}
+
+### DELETE user woorks
+DELETE http://localhost:3000/user/305

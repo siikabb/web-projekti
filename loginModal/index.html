@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login1.css">
+    <link rel="stylesheet" href="loginModal/login1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login Modal</title>
  </head>
@@ -24,6 +24,7 @@
                     <span class="close">&times;</span>
                     <!-- Login form -->
                     <form id="user-login" action="/login" method="post">
+                        <input type="hidden" name="formType" value="loginForm">
                         <label for="userName">
                             <i class="fa fa-user fa-lg" aria-hidden="true"></i>
                             <input type="text" id="userName" name="username" placeholder="Username">
@@ -58,7 +59,8 @@
                 <!-- Close the modal button X -->
                 <span class="close">&times;</span>
                 <!-- register form -->
-                <form id="user-register" action="/register" method="post">
+                <form id="user-register" action="/login" method="post">
+                    <input type="hidden" name="formType" value="registerForm">
                     <label for="firstName">
                         <i class="fa fa-user fa-lg" aria-hidden="true"> </i>
                         <input type="text" id="firstName" name="firstName" placeholder="First name">
@@ -92,7 +94,7 @@
                         <input type="file" id="userImage" name="image" accept="image/*">
                     </label> 
                         <input type="submit" id="submit" value="Register">
-
+                        
                 </form>
                 
             </div>
@@ -100,6 +102,6 @@
         </div>
     </div>
 
-<script src="login.js"></script>    
+<script src="loginModal/login.js"></script>    
  </body>
  </html>

@@ -1,2 +1,1 @@
-# web-projekti
-Web-kehitysprojekti TX00EY67-3001 kurssille
+Assignment 1 - Getting started with node.js
