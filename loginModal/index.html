@@ -24,7 +24,7 @@
                     <span class="close">&times;</span>
                     
                     <!-- Login form -->
-                    <form id="user-login" action="/login" method="post" onsubmit="validatePassword()">
+                    <form id="user-login" action="/login" method="post" >
                         <label for="userName">
                             <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
                             <input type="text" id="userName" name="username" placeholder="Email">
@@ -59,14 +59,14 @@
                 <!-- Close the modal button X -->
                 <span class="close">&times;</span>
                 <!-- register form -->
-                <form id="user-register" action="/register" method="post">
+                <form id="user-register" action="/register" method="post" >
                     <label for="userName">
                         <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                        <input type="text" id="userName" name="username" placeholder="Username">
+                        <input type="text" id="username" name="username" placeholder="Username">
                     </label>
                     <label for="userPassword">
                         <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
-                        <input type="password" id="userPassword" name="password" placeholder=" Password">
+                        <input type="password" id="password" name="password" placeholder=" Password">
                     </label>
                         <input type="submit" id="submit" value="Register">
 

@@ -31,13 +31,47 @@ window.onclick = function(event) {
     registerModal.style.display = "none"; // Close the register modal as well
   }
 };
-function validatePassword() {
-  const passwordField = document.getElementById("userPassword");
+function validatePassword(event , modalId) {
+  if ( modalId === "user-login" ){
+    const passwordField = document.getElementById('userPassword');
   const password = passwordField.value;
+    
+  const emailField = document.getElementById('userName');
+  const email = emailField.value;
 
-  if (password.length < 8) {
+  if ( password.length < 8 ) {
       alert("Password must be at least 8 characters long. Please change your password.");
       // Prevent the form from submitting
       event.preventDefault();
+      if (email.length <= 0){
+        alert("Enter user name.");
+      event.preventDefault();
+      }
+  }
+  }
+  if ( modalId === "user-register" ){
+    const passwordField = document.getElementById('password');
+  const password = passwordField.value;
+    
+  const emailField = document.getElementById('username');
+  const email = emailField.value;
+
+  if ( password.length < 8 ) {
+      alert("Password must be at least 8 characters long. Please change your password.");
+      // Prevent the form from submitting
+      event.preventDefault();
+      if (email.length <= 0){
+        alert("Enter user name.");
+      event.preventDefault();
+      }
+  }
   }
 };
+
+document.getElementById("user-login").addEventListener("submit", function (event) {
+  validatePassword(event, "user-login");
+});
+
+document.getElementById("user-register").addEventListener("submit", function (event) {
+  validatePassword(event, "user-register");
+});
