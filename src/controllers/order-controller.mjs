@@ -1,6 +1,7 @@
 import {
   createOrder,
   findOrderCart,
+  finishOrder,
   listOrders,
 } from '../models/order-model.mjs';
 
@@ -19,7 +20,12 @@ const postOrder = async (req, res) => {
 };
 
 const postOrderById = async (req, res) => {
-  // sends an existing order to be done, changes the order status etc
+  const result = await finishOrder(req.params.id);
+  if (!result.error) {
+    res.json({message: 'Order made successfully', ...result});
+  } else {
+    res.sendStatus(500);
+  }
 };
 
 const getOrders = async (req, res) => {

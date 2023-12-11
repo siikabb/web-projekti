@@ -36,4 +36,16 @@ const findOrderCart = async (order_id) => {
   }
 };
 
-export {createOrder, listOrders, findOrderCart};
+const finishOrder = async (order_id) => {
+  try {
+    const sql = `UPDATE Orders SET order_status = 1 WHERE order_id = ?`;
+    const [rows] = await promisePool.query(sql, [order_id]);
+    const order = await findOrderCart(order_id);
+    return order;
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {createOrder, listOrders, findOrderCart, finishOrder};

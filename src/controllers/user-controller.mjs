@@ -1,5 +1,5 @@
 import {validationResult} from 'express-validator';
-import {addUser} from '../models/user-model.mjs';
+import {addUser, findUsers} from '../models/user-model.mjs';
 import bcrypt from 'bcryptjs';
 
 const postUser = async (req, res) => {
@@ -15,4 +15,18 @@ const postUser = async (req, res) => {
   res.json({message: 'new user added', user_id: newUserId});
 };
 
-export {postUser};
+const getUsers = async (req, res) => {
+  if (req.user.user_level !== 0) {
+    res.sendStatus(403);
+  } else {
+    try {
+      const users = await findUsers();
+      res.json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({message: 'Server error'});
+    }
+  }
+};
+
+export {postUser, getUsers};

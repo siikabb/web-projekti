@@ -30,4 +30,15 @@ const addUser = async (userData) => {
   }
 };
 
-export {login, addUser};
+const findUsers = async () => {
+  try {
+    const sql = `SELECT * FROM Users`;
+    const result = await promisePool.query(sql);
+    return result[0];
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {login, addUser, findUsers};
