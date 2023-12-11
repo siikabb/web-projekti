@@ -19,10 +19,10 @@ app.use('/', express.static('public'));
 // });
 
 // product endpoints
-app.use('/api/products/', productRouter);
-app.use('/api/auth/', authRouter);
-app.use('/api/users/', userRouter);
-app.use('/api/order/', orderRouter);
+app.use('/products/', productRouter);
+app.use('/auth/', authRouter);
+app.use('/users/', userRouter);
+app.use('/order/', orderRouter);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
