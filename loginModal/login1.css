@@ -17,10 +17,10 @@
   /* Modal Content/Box */
   .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    background-image: url(./most_wanted_forloginform.jpeg);
+    background-image: url(./loginpaper.png);
     background-repeat: no-repeat;
     background-size: contain;
     height: 500px;

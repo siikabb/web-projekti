@@ -31,13 +31,3 @@ window.onclick = function(event) {
     registerModal.style.display = "none"; // Close the register modal as well
   }
 };
-// validate user input
-function loginForm() {
-  // Get form elements by their IDs
-  const usernameInput = document.getElementById("userName");
-  const passwordInput = document.getElementById("userPassword");
-
-  // Get values from the form elements
-  const usernameValue = usernameInput.value;
-  const passwordValue = passwordInput.value;
-};
