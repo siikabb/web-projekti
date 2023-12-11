@@ -13,10 +13,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/', express.static('public'));
 
-app.get('/api/', (req, res) => {
-  res.status(200);
-  res.json({message: 'Welcome to Elysium food order service internal API'});
-});
+// app.get('/api/', (req, res) => {
+//   res.status(200);
+//   res.json({message: 'Welcome to Elysium food order service internal API'});
+// });
 
 // product endpoints
 app.use('/api/products/', productRouter);
