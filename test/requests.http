@@ -15,8 +15,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c
 {
     "product_name": "test5",
     "description": "test description asd",
-    "price": 100.00,
-    "image_url": "test"
+    "price": 9.50,
+    "image_url": "http://placekitten.com/400/400"
 }
 
 ### POST /api/products/ error
