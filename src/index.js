@@ -12,6 +12,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use('/', express.static('public'));
+app.use('/docs/', express.static('docs'));
 
 // app.get('/api/', (req, res) => {
 //   res.status(200);

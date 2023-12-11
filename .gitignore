@@ -131,3 +131,4 @@ dist
 
 db/create-user.sql
 .DS_Store
+docs/
