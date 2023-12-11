@@ -24,7 +24,7 @@
                     <span class="close">&times;</span>
                     
                     <!-- Login form -->
-                    <form id="user-login" action="/login" method="post">
+                    <form id="user-login" action="/login" method="post" onsubmit="validatePassword()">
                         <label for="userName">
                             <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
                             <input type="text" id="userName" name="username" placeholder="Email">

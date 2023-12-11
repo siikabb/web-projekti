@@ -31,3 +31,13 @@ window.onclick = function(event) {
     registerModal.style.display = "none"; // Close the register modal as well
   }
 };
+function validatePassword() {
+  const passwordField = document.getElementById("userPassword");
+  const password = passwordField.value;
+
+  if (password.length < 8) {
+      alert("Password must be at least 8 characters long. Please change your password.");
+      // Prevent the form from submitting
+      event.preventDefault();
+  }
+};
