@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu Admin</h2>
+        <a href="#" id="dashboard-link">Dashboard</a>
+        <a href="#" id="orders-link">Orders</a>
+        <a href="#" id="menu-items-link">Menu items</a>
+    </div>
+    <div class="content">
+        <div class="orders">
+            <h1>Current Orders</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Total Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Abdur</td>
+                        <td>$23.99</td>
+                        <td>Preparing</td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="menu-items">
+            <h1>Manage Menu</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Dish Name</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Margherita Pizza</td>
+                        <td>$12.99</td>
+                        <td>
+                            <button type="button" class="edit-btn">Edit</button>
+                            <button type="button" class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Additional rows can be added here -->
+                </tbody>
+            </table>
+            <form id="menu-item-form">
+                <input type="text" id="dish-name" placeholder="Dish Name" required>
+                <input type="number" id="dish-price" placeholder="Price" required>
+                <button type="submit" id="save-item">Save Menu Item</button>
+                <button type="button" id="cancel-item">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
