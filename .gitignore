@@ -130,3 +130,4 @@ dist
 .pnp.*
 
 db/create-user.sql
+.DS_Store
