@@ -1,18 +1,14 @@
 {
   "name": "web-projekti",
   "version": "1.0.0",
-  "description": "Interactive food order app for web development course",
-  "main": "index.js",
+  "description": "",
+  "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.53.0",
-    "eslint-config-google": "^0.14.0",
-    "nodemon": "^3.0.1"
-  },
   "dependencies": {
     "express": "^4.18.2"
   }
