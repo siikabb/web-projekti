@@ -22,19 +22,37 @@ function saveMenuItem(editMode = false, itemId = null) {
       }
     } else {
       // Add new row
-      const newRow = document.createElement('tr');
-      newRow.innerHTML = `
-                <td>${generateItemId()}</td>
-                <td>${dishType}</td>
-                <td>${dishName}</td>
-                <td>$${dishPrice.toFixed(2)}</td>
-                <td>
-                    <button type="button" class="edit-btn">Edit</button>
-                    <button type="button" class="delete-btn">Delete</button>
-                </td>
-            `;
-      menuTable.appendChild(newRow);
+      //   const newRow = document.createElement('tr');
+      //   newRow.innerHTML = `
+      //             <td>${generateItemId()}</td>
+      //             <td>${dishType}</td>
+      //             <td>${dishName}</td>
+      //             <td>$${dishPrice.toFixed(2)}</td>
+      //             <td>
+      //                 <button type="button" class="edit-btn">Edit</button>
+      //                 <button type="button" class="delete-btn">Delete</button>
+      //             </td>
+      //         `;
+      //   menuTable.appendChild(newRow);
+      console.log(token);
+      fetch('../products/', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + token,
+        },
+        body: JSON.stringify({
+          product_name: dishName,
+          price: dishPrice,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
     }
+    updateMenuItems();
 
     resetForm();
   } else {
@@ -131,6 +149,7 @@ document
   .addEventListener('click', function (event) {
     event.preventDefault();
     showSection('menu-items');
+    updateMenuItems();
   });
 
 // Handling form submission
@@ -181,3 +200,31 @@ login.addEventListener('submit', (event) => {
       }
     });
 });
+
+const updateMenuItems = () => {
+  const menuTable = document.querySelector('.menu-items tbody');
+  menuTable.innerHTML = '';
+  const url = '../products/';
+  fetch(url, {method: 'GET'})
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      for (const product of data) {
+        console.log(product);
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+                <td>${product.product_id}</td>
+                <td>dishtype</td>
+                <td>${product.name}</td>
+                <td>${product.price} €</td>
+                <td>
+                    <button type="button" class="edit-btn">Edit</button>
+                    <button type="button" class="delete-btn">Delete</button>
+                </td>
+            `;
+        menuTable.appendChild(newRow);
+      }
+    });
+};
+
+// updateMenuItems;
