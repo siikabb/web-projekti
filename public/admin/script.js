@@ -4,9 +4,10 @@ let token = '';
 function saveMenuItem(editMode = false, itemId = null) {
   const dishType = document.getElementById('dish-type').value;
   const dishName = document.getElementById('dish-name').value;
+  const vegan = document.getElementById('vegan-check').checked;
   const dishDescription = document.getElementById('dish-description').value;
   const dishPrice = parseFloat(document.getElementById('dish-price').value);
-  console.log(dishType);
+  console.log(vegan);
 
   if (dishName && !isNaN(dishPrice)) {
     const menuTable = document.querySelector('.menu-items tbody');
@@ -37,6 +38,10 @@ function saveMenuItem(editMode = false, itemId = null) {
       //         `;
       //   menuTable.appendChild(newRow);
       console.log(token);
+      var diets = '';
+      if (vegan) {
+        diets = 'vegan';
+      }
       fetch('../products/', {
         method: 'POST',
         headers: {
@@ -49,6 +54,7 @@ function saveMenuItem(editMode = false, itemId = null) {
           description: dishDescription,
           price: dishPrice,
           type: dishType,
+          diets: diets,
         }),
       })
         .then((response) => response.json())
@@ -255,6 +261,7 @@ const updateMenuItems = async () => {
                 <td>${productType}</td>
                 <td>${product.name}</td>
                 <td>${product.description}</td>
+                <td>${product.diets}</td>
                 <td>${product.price} €</td>
                 <td>
                     <button type="button" class="edit-btn">Edit</button>

@@ -26,9 +26,9 @@ const findProductById = async (id) => {
 };
 
 const addProduct = async (product) => {
-  const {product_name, price, description, type} = product;
-  const sql = `INSERT INTO Products (name, price, description, type) VALUES (?, ?, ?, ?)`;
-  const params = [product_name, price, description, type];
+  const {product_name, price, description, type, diets} = product;
+  const sql = `INSERT INTO Products (name, price, description, type, diets) VALUES (?, ?, ?, ?, ?)`;
+  const params = [product_name, price, description, type, diets];
   try {
     const rows = await promisePool.query(sql, params);
     // console.log('rows', rows);
@@ -40,7 +40,7 @@ const addProduct = async (product) => {
 };
 
 const editProduct = async (id, product) => {
-  const {product_name, price, description, type} = product;
+  const {product_name, price, description, type, diets} = product;
   // const sql = `UPDATE Products SET name = ?, price = ?, description = ?, image_url = ? WHERE product_id = ?`;
   // const params = [product_name, price, description, image_url, id];
   let sql = 'UPDATE Products SET ';
@@ -62,6 +62,10 @@ const editProduct = async (id, product) => {
   if (type !== null && type !== undefined) {
     updates.push('type = ?');
     params.push(type);
+  }
+  if (diets !== null && diets !== undefined) {
+    updates.push('diets = ?');
+    params.push(diets);
   }
 
   sql += updates.join(', ') + ' WHERE product_id = ?';
