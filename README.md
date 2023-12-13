@@ -1,2 +1,5 @@
-# web-projekti
-Web-kehitysprojekti TX00EY67-3001 kurssille
+# Restaurant School Project Admin Page
+
+This is the admin page of our restaurant school project.
+
+Made by Ahmed Ezzaroui

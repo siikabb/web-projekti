@@ -10,13 +10,9 @@
     "start": "node src/index.js",
     "apidoc": "apidoc -i src/ -o docs/"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.53.0",
-    "eslint-config-google": "^0.14.0",
-    "nodemon": "^3.0.1"
-  },
   "dependencies": {
     "apidoc": "^1.2.0",
     "bcryptjs": "^2.4.3",
