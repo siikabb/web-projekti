@@ -20,7 +20,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    background-image: url(paper.jpeg);
+    background-image: url(/visuals/paper_texture.jpeg);
     background-repeat: no-repeat;
     background-size: contain;
     height: 480px;
