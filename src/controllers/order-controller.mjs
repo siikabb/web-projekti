@@ -1,4 +1,5 @@
 import {
+  changeOrderStatus,
   createOrder,
   findOrderCart,
   finishOrder,
@@ -29,11 +30,15 @@ const postOrderById = async (req, res) => {
 };
 
 const getOrders = async (req, res) => {
-  const result = await listOrders();
-  if (!result.error) {
-    res.json(result);
+  if (req.user.user_level !== 0) {
+    res.sendStatus(403);
   } else {
-    res.sendStatus(500);
+    const result = await listOrders();
+    if (!result.error) {
+      res.json(result);
+    } else {
+      res.sendStatus(500);
+    }
   }
 };
 
@@ -46,4 +51,13 @@ const getOrderById = async (req, res) => {
   }
 };
 
-export {postOrder, postOrderById, getOrders, getOrderById};
+const putOrderById = async (req, res) => {
+  const result = await changeOrderStatus(req.params.id, req.body.order_status);
+  if (!result.error) {
+    res.json({message: 'Order status changed successfully'});
+  } else {
+    res.sendStatus(500);
+  }
+};
+
+export {postOrder, postOrderById, getOrders, getOrderById, putOrderById};

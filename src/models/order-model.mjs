@@ -2,8 +2,8 @@ import promisePool from '../utils/database.mjs';
 
 const createOrder = async (user_id) => {
   try {
-    const sql = `INSERT INTO Orders (user_id, order_status) VALUES (?, 1)`;
-    // order status defaults to 1
+    const sql = `INSERT INTO Orders (user_id, order_status) VALUES (?, 0)`;
+    // order status defaults to 0
     const result = await promisePool.query(sql, user_id);
     return result[0].insertId;
   } catch (e) {
@@ -48,4 +48,16 @@ const finishOrder = async (order_id) => {
   }
 };
 
-export {createOrder, listOrders, findOrderCart, finishOrder};
+const changeOrderStatus = async (order_id, new_status) => {
+  try {
+    const sql = `UPDATE Orders SET order_status = ? WHERE order_id = ?`;
+    const [rows] = await promisePool.query(sql, [new_status, order_id]);
+    const order = await findOrderCart(order_id);
+    return order;
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {createOrder, listOrders, findOrderCart, finishOrder, changeOrderStatus};

@@ -167,6 +167,7 @@ document
   .addEventListener('click', function (event) {
     event.preventDefault();
     showSection('orders');
+    updateOrderList();
   });
 
 document
@@ -252,4 +253,64 @@ const updateMenuItems = async () => {
     });
 };
 
-// updateMenuItems;
+const updateOrderList = async () => {
+  const orderTable = document.querySelector('#order-table tbody');
+  orderTable.innerHTML = '';
+  const url = '../order/';
+  await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  })
+    .then((response) => response.json())
+    .then(async (data) => {
+      console.log(data);
+      for (const order of data) {
+        console.log(order);
+        const newRow = document.createElement('tr');
+        let doneStatus = null;
+        if (order.order_status === 0) {
+          doneStatus = 'Pending';
+        } else if (order.order_status === 1) {
+          doneStatus = 'Done';
+        } else if (order.order_status === 2) {
+          doneStatus = 'Making';
+        } else if (order.order_status === 3) {
+          doneStatus = 'Cancelled';
+        }
+        const cart = await fetchCart(order.order_id);
+        console.log(cart);
+        newRow.innerHTML = `
+                <td>${order.order_id}</td>
+                <td>${order.order_time}</td>
+                <td>${order.user_id}</td>
+                <td>${cart}</td>
+                <td>${doneStatus}</td>`;
+        orderTable.appendChild(newRow);
+      }
+    });
+};
+
+const fetchCart = async (orderId) => {
+  const url = `../order/${orderId}`;
+  const cart = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  }).then((response) => response.json());
+  console.log(cart[1]);
+  const cartItems = [];
+  for (const product of cart[1]) {
+    const itemJSON = await fetch(`../products/${product.product_id}/`, {
+      method: 'GET',
+    }).then((response) => response.json());
+    const itemName = itemJSON.name;
+    console.log(itemName);
+    cartItems.push(itemName);
+  }
+  return cartItems;
+};
+
+// updateOrderList();

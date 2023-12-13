@@ -5,13 +5,21 @@ import {
   getOrders,
   postOrder,
   postOrderById,
+  putOrderById,
 } from '../controllers/order-controller.mjs';
 
 const orderRouter = express.Router();
 
 // routes for /api/order/
-orderRouter.route('/').get(getOrders).post(authenticateToken, postOrder);
+orderRouter
+  .route('/')
+  .get(authenticateToken, getOrders)
+  .post(authenticateToken, postOrder);
 
-orderRouter.route('/:id/').get(getOrderById).post(postOrderById);
+orderRouter
+  .route('/:id/')
+  .get(getOrderById)
+  .post(postOrderById)
+  .put(putOrderById);
 
 export {orderRouter};
