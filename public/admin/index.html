@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Menu Admin</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="sidebar">
+    <div class="sidebar" style="display: none;">
         <h2>Menu Admin</h2>
         <a href="#" id="dashboard-link">Dashboard</a>
         <a href="#" id="orders-link">Orders</a>
         <a href="#" id="menu-items-link">Menu items</a>
     </div>
-    <div class="content">
+    <div class="content" style="display: none;">
         <div class="dashboard">
             <h1>Dashboard</h1>
             <!-- Dashboard content goes here -->
@@ -63,6 +65,15 @@
             </table>
         </div>
     </div>
+    <div class="login">
+        <h1>Restaurant Menu Admin</h1>
+        <form id="login-form" action="/auth/login" method="post">
+            <input type="text" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit" id="login">Login</button>
+        </form>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>
