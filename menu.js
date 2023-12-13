@@ -78,40 +78,53 @@ menuBack.addEventListener('click', () => {
 
 // rm-in class adding and removing is missing
 
-// 3d rotate
+//3d rotate
 
-// let constrain = 1000;
-// let mouseOverContainer = document.getElementById('ex1');
-// let ex1Layer = document.getElementById('ex1-layer');
+let constrain = 2000;
+let mouseOverContainer = document.getElementById('ex1');
+let ex1Layer = document.getElementById('ex1-layer');
 
-// function transforms(x, y, el) {
-//   let box = el.getBoundingClientRect();
-//   let calcX = -(y - box.y - box.height / 2) / constrain;
-//   let calcY = (x - box.x - box.width / 2) / constrain;
+// Function to perform linear interpolation
+function lerp(start, end, t) {
+  return start * (1 - t) + end * t;
+}
 
-//   return (
-//     'perspective(100px) ' +
-//     '   rotateX(' +
-//     calcX +
-//     'deg) ' +
-//     '   rotateY(' +
-//     calcY +
-//     'deg) '
-//   );
-// }
+function transforms(x, y, el) {
+  let box = el.getBoundingClientRect();
+  let calcX = -(y - box.y - box.height / 2) / constrain;
+  let calcY = (x - box.x - box.width / 2) / constrain;
 
-// function transformElement(el, xyEl) {
-//   el.style.transform = transforms.apply(null, xyEl);
-// }
+  // Linear interpolation for a stronger effect
+  calcX = lerp(parseFloat(el.dataset.lastX) || calcX, calcX, 0.2); // Increase lerp factor to 0.2
+  calcY = lerp(parseFloat(el.dataset.lastY) || calcY, calcY, 0.2); // Increase lerp factor to 0.2
 
-// mouseOverContainer.onmousemove = function (e) {
-//   let xy = [e.clientX, e.clientY];
-//   let position = xy.concat([ex1Layer]);
+  // Store the current values for the next iteration
+  el.dataset.lastX = calcX;
+  el.dataset.lastY = calcY;
 
-//   window.requestAnimationFrame(function () {
-//     transformElement(ex1Layer, position);
-//   });
-// };
+  return (
+    'perspective(100px) ' +
+    '   rotateX(' +
+    calcX +
+    'deg) ' +
+    '   rotateY(' +
+    calcY +
+    'deg) '
+  );
+}
+
+function transformElement(el, xyEl) {
+  el.style.transform = transforms.apply(null, xyEl);
+}
+
+mouseOverContainer.onmousemove = function (e) {
+  let xy = [e.clientX, e.clientY];
+  let position = xy.concat([ex1Layer]);
+
+  window.requestAnimationFrame(function () {
+    transformElement(ex1Layer, position);
+  });
+};
 
 // const darkButton = document.querySelector('#modebutton');
 

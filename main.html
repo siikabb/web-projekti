@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Elysium | Restaurant</title>
+    <link rel="icon" type="image/x-icon" href="chefit.png">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="main2.css">
     <link rel="stylesheet" href="login1.css">
@@ -100,9 +101,12 @@
 
     <!-- <button class="signbutton">sign up</button>
     <button class="loginbutton">log in</button> -->
+    
+    <video id="background-video" autoplay loop muted poster="bgvid.mp4">
+        <source src="bgvid.mp4" type="video/mp4">
+    </video>
 
     <section class="main">
-
 
         <section class="main" id="ex1-layer">
             
@@ -142,19 +146,19 @@
                                 <h4>Appetizers</h4>
                                 <hr style="margin-bottom: 20px;">
                                 <dl>
-                                    <dt>Truffle Infusion Bruschetta - $11.99</dt>
+                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span></dt>
                                     <dd>Rich truffle tomatoes on artisanal bread.</dd>
 
-                                    <dt>Culinary Elegance Sampler - $14.99</dt>
+                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span></dt>
                                     <dd>Exquisite bites to tantalize your palate, a lavish selection.</dd>
 
-                                    <dt>Vegan Harvest Spring Rolls - $10.99</dt>
+                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span class="price">$10.99</span></dt>
                                     <dd>Plant-based delight, fresh veggies, flavorful tofu rolls.</dd>
 
-                                    <dt>Caviar Dreams on Blini - $25.99</dt>
+                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span></dt>
                                     <dd>Indulge in luxury, caviar atop delicate Russian-style blini.</dd>
                                     
-                                    <dt>Vegan Delight Stuffed Peppers - $12.99</dt>
+                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span class="price">$12.99</span></dt>
                                     <dd>Burst of flavors, plant-based goodness in every bite.</dd>
                                 </dl>
 
@@ -162,10 +166,10 @@
                                 <h4 style="margin-top: 0;">Drinks</h4>
                                 <hr style="margin-bottom: 20px;">
                                 <dl>
-                                    <dt>Enchanted Orchard Elixir - $7.99</dt>
+                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span></dt>
                                     <dd>Non-alcoholic blend of delightful seasonal fruits.</dd>
 
-                                    <dt>Whispering Pines Pinot Grigio - $18.99</dt>
+                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span></dt>
                                     <dd>Immerse in crisp elegance, a fine white wine experience.</dd>
                                 </dl>
 
@@ -197,28 +201,28 @@
                                         <h4>Main Courses</h4>
                                         <hr style="margin-bottom: 20px;">
                                         <dl>
-                                            <dt>Lobster Bisque Elysium - $32.99</dt>
+                                            <dt>Lobster Bisque Elysium - <span class="price">$32.99</span></dt>
                                             <dd>Dive into opulence, creamy lobster bisque masterpiece.</dd>
         
-                                            <dt>Vegan Symphony Risotto - $34.99</dt>
+                                            <dt>Symphony Risotto <span class="vegan">(Vegan)</span> - <span class="price">$34.99</span></dt>
                                             <dd>Plant-powered symphony, creamy comforting risotto sensation.</dd>
         
-                                            <dt>Prime Fillet Mignon Royale - $39.99</dt>
+                                            <dt>Prime Fillet Mignon Royale - <span class="price">$39.99</span></dt>
                                             <dd>Epitome of steak perfection, prime fillet fit for royalty.</dd>
         
-                                            <dt>Mediterranean Jewel Sea Bass - $44.99</dt>
+                                            <dt>Mediterranean Jewel Sea Bass - <span class="price">$44.99</span></dt>
                                             <dd>Mediterranean-inspired sea bass masterpiece.</dd>
         
-                                            <dt>Golden Truffle Risotto (Vegan) - $26.99</dt>
+                                            <dt>Golden Truffle Risotto - <span class="price">$26.99</span></dt>
                                             <dd>Luxuriate in decadence, truffle-infused risotto bliss.</dd>
                                                                                                                         
-                                            <dt>Forbidden Garden Tagliatelle (Vegan) - $22.99</dt>
-                                            <dd>Revel in luscious flavors, a gardeny vegan tagliatelle.</dd>
+                                            <dt>Forbidden Tagliatelle <span class="vegan">(Vegan)</span> - <span class="price">$22.99</span></dt>
+                                            <dd>Revel in the luscious flavors of this vegan tagliatelle adorned with garden delights.</dd>
                                             
-                                            <dt>Herb-Encrusted Rack of Lamb - $36.99</dt>
+                                            <dt>Herb-Encrusted Rack of Lamb - <span class="price">$36.99</span></dt>
                                             <dd>Experience culinary excellence with a herb-infused lamb.</dd>
                                             
-                                            <dt>Japanese-inspired Black Cod Miso - $45.99</dt>
+                                            <dt>Japanese-inspired Black Cod Miso - <span class="price">$45.99</span></dt>
                                             <dd>Embark on a culinary journey with perfectly grilled black cod glazed in savory miso.</dd>
                                         </dl>
                                         <a href="#" class="rm-button-open2">Continue to cart</a>

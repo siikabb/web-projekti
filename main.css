@@ -13,6 +13,23 @@
 }  */
 
 
+/*BG VIDEO*/
+
+#background-video {
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+
+	filter: brightness(150%) opacity(85%) drop-shadow(1px 1px 20px rgb(70, 42, 0));
+  }
+
+
 /* SHOPPING CART */
 .shopping-cart {
 	border: 2px inset black;
@@ -243,7 +260,7 @@ hr {
 	/* border: 1px solid black; */
 
 	box-shadow: 
-		inset 0 0 0 10px rgb(219, 219, 219);
+		inset 0 0 0 10px rgba(0, 0, 0, 0.75);
 		/* inset 0 0 0 17px #e6b741, 
 		inset 0 0 0 18px #fff, 
 		inset 0 0 0 19px #e6b741, 
@@ -375,7 +392,7 @@ a.rm-button-open2,
 	background-size: cover;
 	border-radius: 50%;
 	margin: 10px auto;
-	filter: brightness(0.9);
+	filter: brightness(1) contrast(80%) drop-shadow(0px 1px 2px rgb(39, 20, 0));
 	/* box-shadow: 
 		0 0 0 3px #fff, 
 		0 0 0 4px #e6b741, 
@@ -514,7 +531,7 @@ a.rm-button-open2:hover {
 .rm-content dl dt {
 	font-weight: 600;
 	text-transform: uppercase;
-	color: white;
+	color: rgb(240, 240, 240);
 	font-family: "Courier New", monospace;
 	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
 }
@@ -539,7 +556,7 @@ a.rm-viewdetails:before{
 	content: '\56';
 	font-style: normal;
 	font-weight: normal;
-	speak: none;
+	/* speak: none; */
 	display: inline-block;
 	text-decoration: inherit;
 	width: 15px;
@@ -686,14 +703,14 @@ a.rm-viewdetails:hover,
 .rm-container.rm-open .rm-cover {
 	-webkit-transform: rotateY(-180deg) rotate(1deg);
 	-webkit-transition-delay: 0s;
-	transform: rotateY(-180deg) scale(1.15) rotate(1deg);
+	transform: rotateY(-175deg) scale(1.15) rotate(1deg);
 	transition-delay: 0.3s;
 }
 
 .rm-container.rm-open .rm-middle,
 .rm-container.rm-open .rm-right {
 	pointer-events: auto;
-	transform: scale(1.15) rotate(-1deg);
+	transform: rotateY(-5deg) scale(1.15) rotate(-1deg);
 	transition-delay: 0.3s;
 }
 
@@ -713,7 +730,7 @@ a.rm-viewdetails:hover,
 
 .rm-container.rm-open2 .rm-middle {
 	/* transform-origin: 50% 0; */
-	background-image: url(leather_text.jpeg);
+	/* background-image: url(leather_text.jpeg); */
 	transform: rotateY(-179.9deg) rotate(1deg);
 	transition-delay: 0.1s;
 	z-index: 100;
@@ -834,7 +851,7 @@ a.rm-viewdetails:hover,
 body {
     font-family: 'Raleway', 'Arial', sans-serif;
     font-size: 13px;
-    /* background: rgba(213, 137, 79, 0.538) url(../images/bg.jpg); */
+    /* background: rgba(23, 23, 23, 0.538); */
     -webkit-font-smoothing: antialiased;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -846,6 +863,15 @@ body {
     min-height: 100vh;
 
     transition: background-color 0.3s ease;
+}
+
+.vegan {
+	color: rgb(139, 255, 139);
+	font-style: italic;
+}
+
+.price {
+	font-style: italic;
 }
 
 .dark-mode {
