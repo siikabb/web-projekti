@@ -41,11 +41,12 @@
             <h1>Manage Menu</h1>
             <form id="menu-item-form">
                 <select id="dish-type">
-                    <option value="appetizer">Appetizer</option>
-                    <option value="drink">Drink</option>
-                    <option value="main">Main Course</option>
+                    <option value="2">Appetizer</option>
+                    <option value="1">Drink</option>
+                    <option value="0">Main Course</option>
                 </select>
                 <input type="text" id="dish-name" placeholder="Dish Name" required>
+                <input type="text" id="dish-description" placeholder="Description">
                 <input type="number" id="dish-price" placeholder="Price" required>
                 <button type="submit" id="save-item">Save Menu Item</button>
                 <button type="button" id="cancel-item">Cancel</button>
@@ -56,6 +57,7 @@
                         <th>ID</th>
                         <th>Type</th>
                         <th>Dish Name</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>Actions</th>
                     </tr>

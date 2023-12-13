@@ -32,7 +32,7 @@ const getProductById = async (req, res) => {
 
 const postProduct = async (req, res) => {
   console.log('postProduct', req.body);
-  const {product_name, price, description, image_url} = req.body;
+  const {product_name, price, description, type} = req.body;
   if (req.user.user_level !== 0) {
     res.sendStatus(403);
   } else if (product_name && price) {
@@ -40,7 +40,7 @@ const postProduct = async (req, res) => {
       product_name,
       price,
       description,
-      image_url,
+      type,
     });
     if (result.product_id) {
       res.status(201);
@@ -57,7 +57,7 @@ const postProduct = async (req, res) => {
 const putProduct = async (req, res) => {
   console.log(req.params.id);
   console.log('putProduct', req.params.id, req.body);
-  const {product_name, price, description, image_url} = req.body;
+  const {product_name, price, description, type} = req.body;
 
   if (req.user.user_level !== 0) {
     res.sendStatus(403);
@@ -66,7 +66,7 @@ const putProduct = async (req, res) => {
       product_name,
       price,
       description,
-      image_url,
+      type,
     });
     if (result.product_id) {
       res.status(200);

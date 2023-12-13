@@ -4,7 +4,9 @@ let token = '';
 function saveMenuItem(editMode = false, itemId = null) {
   const dishType = document.getElementById('dish-type').value;
   const dishName = document.getElementById('dish-name').value;
+  const dishDescription = document.getElementById('dish-description').value;
   const dishPrice = parseFloat(document.getElementById('dish-price').value);
+  console.log(dishType);
 
   if (dishName && !isNaN(dishPrice)) {
     const menuTable = document.querySelector('.menu-items tbody');
@@ -44,7 +46,9 @@ function saveMenuItem(editMode = false, itemId = null) {
         },
         body: JSON.stringify({
           product_name: dishName,
+          description: dishDescription,
           price: dishPrice,
+          type: dishType,
         }),
       })
         .then((response) => response.json())
@@ -238,10 +242,19 @@ const updateMenuItems = async () => {
       for (const product of data) {
         console.log(product);
         const newRow = document.createElement('tr');
+        let productType = null;
+        if (product.type === 0) {
+          productType = 'Main Course';
+        } else if (product.type === 1) {
+          productType = 'Drink';
+        } else if (product.type === 2) {
+          productType = 'Appetizer';
+        }
         newRow.innerHTML = `
                 <td class="product_id">${product.product_id}</td>
-                <td>dishtype</td>
+                <td>${productType}</td>
                 <td>${product.name}</td>
+                <td>${product.description}</td>
                 <td>${product.price} €</td>
                 <td>
                     <button type="button" class="edit-btn">Edit</button>
