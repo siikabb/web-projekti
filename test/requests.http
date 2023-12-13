@@ -94,7 +94,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c
 GET http://localhost:3000/api/order/
 
 ### GET order by id
-GET http://localhost:3000/api/order/1
+GET http://localhost:3000/order/1
 
 ### GET users
 GET http://localhost:3000/users/
