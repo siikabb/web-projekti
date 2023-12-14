@@ -18,7 +18,34 @@
 	margin: 0;
 }
 
-/*BG VIDEO*/
+/* Notification System*/
+
+#notification {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #4CAF50;
+	color: white;
+	padding: 15px;
+	border-radius: 5px;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s, opacity 0.5s ease-in-out;
+	z-index: 100;
+}
+  
+#notification.show {
+	visibility: visible;
+	opacity: 1;
+}
+  
+#notification.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+/* BG VIDEO */
 
 #background-video {
 	width: 100vw;
@@ -56,13 +83,14 @@
 	display: flex;
 	align-items: center;
 	flex-flow: column;
-	border: 2px inset black;
+	border: 1px inset black;
 	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.1);
 	margin-top: 40px;
-	height: 400px;
+	height: 390px;
 	width: 340px;
 	overflow: scroll;
+	backdrop-filter: blur(1.25px) opacity(90%) brightness(90%);
 }
 
 .item {
@@ -71,23 +99,51 @@
 	color: rgb(240, 240, 240);
 	display: flex;
 	flex-flow: row;
-	gap: 12px;
-	justify-content: center;
-	margin: 7px 0 7px 0;
+	/* gap: 12px; */
+	justify-content: space-between;
+	margin: 7px;
 
 	font-family: "Courier New", monospace;
 	font-weight: 600;
 	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+	width: calc(100% - 14px);
 }
 
 .item-name {
-	
+	color: rgb(240, 240, 240);
 }
 
 .item-price {
 	font-style: italic;
+	color: rgb(240, 240, 240);
 }
 
+.delete-item {
+	cursor: pointer;
+	transition: 0.3s all ease;
+}
+
+.delete-item:hover {
+	color: black;
+}
+
+.order-button {
+	filter: opacity(0.75);
+	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+	color: white;
+	border-radius: 5px;
+	border: 1px white solid;
+	background-color: rgba(255, 255, 255, 0.05);
+	padding: 5px;
+	transition: 0.3s all ease;
+	margin-top: 5px;
+}
+
+.order-button:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+	filter: opacity(1);
+	border-style: dashed;
+}
 
 /* The Modal (background) */
 .modal {
@@ -199,6 +255,11 @@
 	opacity: 0;
 }
 
+.email {
+	overflow: hidden;
+	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+	color: rgb(240, 240, 240);
+}
 
 hr {
     border: 0;
