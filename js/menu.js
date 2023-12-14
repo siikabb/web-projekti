@@ -87,11 +87,11 @@ if (isFirefox) {
   // Code for Safari
 } else {
   // Code for other browsers (Chrome)
-  // mouseOverContainer.onmousemove = (e) => {
-  //   let xy = [e.clientX, e.clientY];
-  //   let position = xy.concat([ex1Layer]);
-  //   window.requestAnimationFrame(() => {
-  //     transformElement(ex1Layer, position);
-  //   });
-  // };
+  mouseOverContainer.onmousemove = (e) => {
+    let xy = [e.clientX, e.clientY];
+    let position = xy.concat([ex1Layer]);
+    window.requestAnimationFrame(() => {
+      transformElement(ex1Layer, position);
+    });
+  };
 }
