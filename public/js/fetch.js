@@ -14,7 +14,7 @@ login.addEventListener('submit', async (event) => {
   const email = document.querySelector('#login-email');
   const password = document.querySelector('#login-password');
   try {
-    fetch(url, {
+    await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -30,11 +30,12 @@ login.addEventListener('submit', async (event) => {
         token = data.token;
         document.querySelector('.email').textContent =
           'Welcome in ' + data.user.email;
-        showNotification('Logged in successfully!');
-        modal.style.display = 'none';
       });
+    showNotification('Logged in successfully!');
+    modal.style.display = 'none';
   } catch (e) {
     console.log(e);
+    showNotification('Invalid email and/or password');
   }
 });
 
@@ -47,7 +48,7 @@ register.addEventListener('submit', async (event) => {
   const password = document.querySelector('#register-password');
 
   try {
-    fetch(url, {
+    await fetch(url, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -58,11 +59,13 @@ register.addEventListener('submit', async (event) => {
         password: password.value,
       }),
     }).then((response) => {
-      showNotification('Registration successful!');
-      registerModal.style.display = 'none';
+      console.log(response);
     });
+    showNotification('Registration successful!');
+    registerModal.style.display = 'none';
   } catch (e) {
     console.log(e);
+    showNotification('Invalid email and/or password');
   }
 });
 
@@ -130,7 +133,7 @@ const addItem = (itemName, itemPrice, itemId) => {
 
   const itemPriceElement = document.createElement('li');
   itemPriceElement.classList.add('item-price');
-  itemPriceElement.textContent = '$' + itemPrice.toFixed(2);
+  itemPriceElement.textContent = itemPrice.toFixed(2) + ' €';
 
   const itemDeleteElement = document.createElement('li');
   itemDeleteElement.classList.add('delete-item');
