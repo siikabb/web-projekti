@@ -317,6 +317,13 @@ const updateOrderList = async () => {
         }
       }
     });
+
+  const currentTime = Date.now();
+  const dateObject = new Date(currentTime);
+
+  const currentDateTime = dateObject.toLocaleString();
+  document.querySelector('#last-updated').textContent =
+    'Last updated: ' + currentDateTime;
 };
 
 const fetchCart = async (orderId) => {
