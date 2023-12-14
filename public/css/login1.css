@@ -2,7 +2,7 @@
 
 /* The Modal (background) */
 .loginModal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -19,7 +19,7 @@
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px dashed #88888876;
     background-image: url(/visuals/paper_texture.jpeg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -27,6 +27,7 @@
     width: 338px;
     display: flex;
     flex-direction: column;
+    border-radius: 7px;
   }
   /* The Close Button */
   .close {
@@ -54,7 +55,7 @@
     text-decoration: none;
 } */
 #user-login{
-  margin-top: 50%;
+  margin-top: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,11 +63,11 @@
   gap: 20px;
 }
 input {
-  width: 120px;
+  width: 200px;
   box-sizing: border-box;
   border: none;
   border-bottom: 5px dashed #5e1008;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 16px;
   background-color: transparent;
   transition: width 0.8s ease-in-out;
@@ -92,7 +93,7 @@ label i {
 }
 /* Style the input to create space for the icon */
 label input {
-  padding-left: 30px; /* Adjust as needed to create space for the icon */
+  padding-left: 22px; /* Adjust as needed to create space for the icon */
 }
 p{
   background: linear-gradient(to right,#4d0d06 0%, #2e1707 100%); /* Use the same gradient as the placeholder text */
@@ -104,7 +105,7 @@ p{
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin-top: 60px;
+  margin-top: 95px;
 }
 .register-text{
   font-family: 'Anton', sans-serif;
@@ -122,20 +123,20 @@ p{
 
 }
 #user-register{
-  margin-top: 50%;
+  margin-top: 30%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
 }
 #user-register input {
-  width: 120px;
+  width: 200px;
   box-sizing: border-box;
   border: none;
   border-bottom: 5px dashed #5e1008;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 16px;
   background-color: transparent;
 }
