@@ -29,7 +29,7 @@ login.addEventListener('submit', async (event) => {
       .then((data) => {
         token = data.token;
         document.querySelector('.email').textContent =
-          'Welcome in ' + data.user.email;
+          'Welcome, ' + data.user.email;
       });
     showNotification('Logged in successfully!');
     modal.style.display = 'none';
