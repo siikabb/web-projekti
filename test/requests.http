@@ -100,5 +100,5 @@ GET http://localhost:3000/order/1
 GET http://localhost:3000/users/
 
 ### POST /cart/:order_id/:product_id
-POST http://localhost:3000/cart/1/3
+POST http://localhost:3000/cart/2/3
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDI1NDc3MzEsImV4cCI6MTcwMjYzNDEzMX0._XK0kOHcaLHQGWXLe2FGp-SPKu9BDWALXfDuO1M3PKs

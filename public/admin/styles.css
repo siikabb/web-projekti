@@ -5,6 +5,7 @@ body {
   background: #f3f3f3;
   display: flex;
   color: #3c3c3c;
+  min-height: 100vh;
 }
 
 .sidebar {
@@ -13,7 +14,7 @@ body {
   color: #fff;
   padding: 20px;
   box-shadow: 2px 0 15px rgba(0, 0, 0, 0.2);
-  height: 100vh;
+  height: inherit;
   transition: width 0.3s ease-in-out;
 }
 
@@ -149,6 +150,37 @@ button:active {
 .edit-btn:hover,
 .delete-btn:hover {
   background-color: #795548; /* Rich chocolate brown */
+}
+
+.edit-btn {
+  display: none;
+}
+
+.login {
+  width: 400px;
+  margin: 100px auto auto auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login h1 {
+  text-align: center;
+}
+
+.login input[type='text'],
+.login input[type='password'] {
+  width: calc(100% - 24px);
+  padding: 12px;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.login button {
+  width: 100%;
 }
 
 @media (max-width: 768px) {

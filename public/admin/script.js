@@ -287,30 +287,34 @@ const updateOrderList = async () => {
     .then(async (data) => {
       console.log(data);
       for (const order of data) {
-        console.log(order);
-        const newRow = document.createElement('tr');
-        let doneStatus = null;
-        if (order.order_status === 0) {
-          doneStatus = 'Pending';
-        } else if (order.order_status === 1) {
-          doneStatus = 'Done';
-        } else if (order.order_status === 2) {
-          doneStatus = 'Making';
-        } else if (order.order_status === 3) {
-          doneStatus = 'Cancelled';
+        if (order.order_status !== 1) {
+          console.log(order);
+          const newRow = document.createElement('tr');
+          let doneStatus = null;
+          if (order.order_status === 0) {
+            doneStatus = 'Pending';
+          } else if (order.order_status === 1) {
+            doneStatus = 'Done';
+          } else if (order.order_status === 2) {
+            doneStatus = 'Making';
+          } else if (order.order_status === 3) {
+            doneStatus = 'Cancelled';
+          }
+          const cart = await fetchCart(order.order_id);
+          console.log(cart);
+          newRow.innerHTML = `
+          <td class="order_id">${order.order_id}</td>
+          <td>${order.order_time}</td>
+          <td>${order.user_id}</td>
+          <td>${cart.join(', ')}</td>
+          <td>${doneStatus}</td>
+          <td>
+          <button type="button" class="done-btn">Done</button>
+          <button type="button" class="cancel-btn">Cancel</button>
+          <button type="button" class="making-btn">Making</button>
+          </td>`;
+          orderTable.appendChild(newRow);
         }
-        const cart = await fetchCart(order.order_id);
-        console.log(cart);
-        newRow.innerHTML = `
-                <td class="order_id">${order.order_id}</td>
-                <td>${order.order_time}</td>
-                <td>${order.user_id}</td>
-                <td>${cart.join(', ')}</td>
-                <td>${doneStatus}</td>
-                <td>
-                    <button type="button" class="done-btn">&check;</button>
-                  </td>`;
-        orderTable.appendChild(newRow);
       }
     });
 };
@@ -346,18 +350,40 @@ document
     console.log(orderId);
 
     if (target.classList.contains('done-btn')) {
-      markOrderAsDone(orderId);
+      updateOrder(1, orderId);
+    } else if (target.classList.contains('cancel-btn')) {
+      updateOrder(3, orderId);
+    } else if (target.classList.contains('making-btn')) {
+      updateOrder(2, orderId);
     }
   });
 
 // updateOrderList();
-const markOrderAsDone = (orderId) => {
+const updateOrder = (newState, orderId) => {
   const url = `../order/${orderId}`;
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + token,
-    },
-  }).then((response) => response.json());
+  if (newState === 1) {
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    }).then((response) => response.json());
+  } else if (newState === 2 || newState === 3) {
+    fetch(url, {
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + token,
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        order_status: newState,
+      }),
+    }).then((response) => response.json());
+  }
   updateOrderList();
 };
+
+document.querySelector('#refresh-orders').addEventListener('click', (event) => {
+  updateOrderList();
+});

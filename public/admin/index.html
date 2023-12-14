@@ -22,6 +22,7 @@
         </div>
         <div class="orders" style="display: none;">
             <h1>Current Orders</h1>
+            <button type="button" id="refresh-orders">Refresh</button>
             <table id="order-table">
                 <thead>
                     <tr>
@@ -42,9 +43,9 @@
             <h1>Manage Menu</h1>
             <form id="menu-item-form">
                 <select id="dish-type">
-                    <option value="2">Appetizer</option>
-                    <option value="1">Drink</option>
                     <option value="0">Main Course</option>
+                    <option value="1">Drink</option>
+                    <option value="2">Appetizer</option>
                 </select>
                 <input type="text" id="dish-name" placeholder="Dish Name" required>
                 <input type="text" id="dish-description" placeholder="Description">
