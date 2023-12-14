@@ -1,4 +1,5 @@
 <!-- CREDIST HERE FOR THE CODROPS 3D RESTAURANTE MENU -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +11,19 @@
     <link rel="stylesheet" href="css/main2.css">
     <link rel="stylesheet" href="css/login1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="normalize.css"> -->
     <script src="js/menu.js" defer></script>
     <script src="js/login.js" defer></script>
     <script src="js/shopping-cart.js" defer></script>
 </head>
 <body id="ex1">
     
-    <div id="notification" class="hidden">Item added to the cart!</div>
+    <div id="notification" class="hidden">Item added to cart!</div>
 
     <div id="loginModal" class="loginModal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <!-- Close the modal button X -->
-            <span class="close">&times;</span>
-            
+            <span class="close">&times;</span> 
             <!-- Login form -->
             <form id="user-login" action="/login" method="post">
                 <label for="userName">
@@ -37,25 +35,17 @@
                     <input type="password" id="userPassword" name="password" placeholder=" Password">
                 </label>      
                     <input type="submit" id="submit" value="Login">
-
             </form>
             <div class="register-div">
                 <p class="register-text">IF YOU'RE NOT REGISTERED IN OUR SYSTEM, SIGN UP HERE NOW.</p>
                 <button class="register-button ">
                     <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
                 </button>
-
             </div>
-
-            
         </div>
-
     </div>
 
-
-
     <div id="registerModal" class="loginModal">
-
         <!-- Modal content -->
         <div class="modal-content">
             <!-- Close the modal button X -->
@@ -72,16 +62,11 @@
                 </label>
                     <input type="submit" id="submit" value="Register">
 
-            </form>
-            
+            </form>  
         </div>
-
     </div>
 
-
-
     <div id="myModal" class="modal">
-
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -91,17 +76,7 @@
           <p>price</p>
           <button>add to shopping cart</button> 
         </div>
-      
-      </div>
-
-
-    <!-- <div id="mode">
-        <input type="checkbox" id="modebutton" name="modeswitch">
-        <label for="modebutton" id="modetext">Dark Mode</label>
-    </div> -->
-
-    <!-- <button class="signbutton">sign up</button>
-    <button class="loginbutton">log in</button> -->
+    </div>
     
     <video id="background-video" autoplay loop muted poster="/visuals/bgvid.mp4">
         <source src="/visuals/bgvid.mp4" type="video/mp4">
@@ -132,7 +107,6 @@
                                     Restaurant Elysium<br>
                                     Albertinkatu 31<br>
                                     00180 Helsinki<br>
-                                    <!-- <strong>Puh.</strong> +35889798665<br> -->
                                 </div>
                                 <div class="options">
                                     <!-- <button class="darkmode"><span class="language-highlight">Eng</span> / Fin</button> -->
@@ -165,7 +139,7 @@
 
                                 
                                 <h4 style="margin-top: 0;">Drinks</h4>
-                                <hr style="margin-bottom: 20px;">
+                                <hr style="margin-bottom: 30px;">
                                 <dl>
                                     <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Non-alcoholic blend of delightful seasonal fruits.</dd>
