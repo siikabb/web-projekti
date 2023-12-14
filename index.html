@@ -13,6 +13,7 @@
     <!-- <link rel="stylesheet" href="normalize.css"> -->
     <script src="js/menu.js" defer></script>
     <script src="js/login.js" defer></script>
+    <script src="js/shopping-cart.js" defer></script>
 </head>
 <body id="ex1">
     
@@ -110,7 +111,7 @@
 
         <section class="main" id="ex1-layer">
             
-            <div id="rm-container" class="rm-container rm-open">
+            <div id="rm-container" class="rm-container rm-open rm-open2">
 
                 <div class="rm-wrapper">
 
@@ -134,7 +135,7 @@
                                     <!-- <strong>Puh.</strong> +35889798665<br> -->
                                 </div>
                                 <div class="options">
-                                    <button class="darkmode">Eng / Fin</button>
+                                    <button class="darkmode"><span class="language-highlight">Eng</span> / Fin</button>
                                     <button class="login" id="open-modal-btn">Sign In / Up</button>
                                 </div>
 
@@ -143,22 +144,22 @@
 
                         <div class="rm-back">
                             <div class="rm-content">
-                                <h4>Appetizers</h4>
+                                <h4 style="margin-bottom: 15px;">Appetizers</h4>
                                 <hr style="margin-bottom: 20px;">
                                 <dl>
-                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span></dt>
+                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Rich truffle tomatoes on artisanal bread.</dd>
 
-                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span></dt>
+                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Exquisite bites to tantalize your palate, a lavish selection.</dd>
 
-                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span class="price">$10.99</span></dt>
+                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span class="price">$10.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Plant-based delight, fresh veggies, flavorful tofu rolls.</dd>
 
-                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span></dt>
+                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Indulge in luxury, caviar atop delicate Russian-style blini.</dd>
                                     
-                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span class="price">$12.99</span></dt>
+                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span class="price">$12.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Burst of flavors, plant-based goodness in every bite.</dd>
                                 </dl>
 
@@ -166,10 +167,10 @@
                                 <h4 style="margin-top: 0;">Drinks</h4>
                                 <hr style="margin-bottom: 20px;">
                                 <dl>
-                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span></dt>
+                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Non-alcoholic blend of delightful seasonal fruits.</dd>
 
-                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span></dt>
+                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Immerse in crisp elegance, a fine white wine experience.</dd>
                                 </dl>
 
@@ -198,31 +199,31 @@
                             <div class="rm-front">
                                 <div class="rm-inner">
                                     <div class="rm-content">
-                                        <h4>Main Courses</h4>
+                                        <h4 style="margin-bottom: 15px;">Main Courses</h4>
                                         <hr style="margin-bottom: 20px;">
                                         <dl>
-                                            <dt>Lobster Bisque Elysium - <span class="price">$32.99</span></dt>
+                                            <dt>Lobster Bisque Elysium - <span class="price">$32.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Dive into opulence, creamy lobster bisque masterpiece.</dd>
         
-                                            <dt>Symphony Risotto <span class="vegan">(Vegan)</span> - <span class="price">$34.99</span></dt>
+                                            <dt>Symphony Risotto <span class="vegan">(Vegan)</span> - <span class="price">$34.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Plant-powered symphony, creamy comforting risotto sensation.</dd>
         
-                                            <dt>Prime Fillet Mignon Royale - <span class="price">$39.99</span></dt>
+                                            <dt>Prime Fillet Mignon Royale - <span class="price">$39.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Epitome of steak perfection, prime fillet fit for royalty.</dd>
         
-                                            <dt>Mediterranean Jewel Sea Bass - <span class="price">$44.99</span></dt>
+                                            <dt>Mediterranean Jewel Sea Bass - <span class="price">$44.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Mediterranean-inspired sea bass masterpiece.</dd>
         
-                                            <dt>Golden Truffle Risotto - <span class="price">$26.99</span></dt>
+                                            <dt>Golden Truffle Risotto - <span class="price">$26.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Luxuriate in decadence, truffle-infused risotto bliss.</dd>
                                                                                                                         
-                                            <dt>Forbidden Tagliatelle <span class="vegan">(Vegan)</span> - <span class="price">$22.99</span></dt>
+                                            <dt>Forbidden Tagliatelle <span class="vegan">(Vegan)</span> - <span class="price">$22.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Revel in the luscious flavors of this vegan tagliatelle adorned with garden delights.</dd>
                                             
-                                            <dt>Herb-Encrusted Rack of Lamb - <span class="price">$36.99</span></dt>
+                                            <dt>Herb-Encrusted Rack of Lamb - <span class="price">$36.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Experience culinary excellence with a herb-infused lamb.</dd>
                                             
-                                            <dt>Japanese-inspired Black Cod Miso - <span class="price">$45.99</span></dt>
+                                            <dt>Japanese-inspired Black Cod Miso - <span class="price">$45.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Embark on a culinary journey with perfectly grilled black cod glazed in savory miso.</dd>
                                         </dl>
                                         <a href="#" class="rm-button-open2">Continue to cart</a>
@@ -237,13 +238,14 @@
                                         <h4>Shopping cart</h4>
                                         <hr>
                                         <div class="shopping-cart">
-                                            <p>Empty</p>
-                                            <!-- <p>test menu item</p>
-                                            <p>test menu item</p>
-                                            <p>test menu item</p>
-                                            <p>test menu item</p>
-                                            <p>test menu item</p>
-                                            <p>test menu item</p> -->
+                                            <!-- <ul class="item">
+                                                <li class="item-name">FORBIDDEN TAGLIATELLE (VEGAN)</li>
+                                                <li class="item-price">$30.99</li>
+                                            </ul>
+                                            <ul class="item">
+                                                <li class="item-name">FORBIDDEN TAGLIATELLE (VEGAN)</li>
+                                                <li class="item-price">$30.99</li>
+                                            </ul> -->
                                         </div>
                                         <!-- <dl>
                                             <dt><a href="http://herbivoracious.com/2009/03/panfried-gnocchi-with-arugula-recipe.html" class="rm-viewdetails" data-thumb="images/11.jpg">Crispy Gnocchi with Arugula</a></dt>
@@ -273,7 +275,7 @@
                             
                                         </dl> -->
                                         <a href="#" class="rm-button-close2">Back to menu</a>
-                                        <button>Order</button>
+                                        <button class="order-button">Order</button>
                                     </div>
                             </div>
                             </div>

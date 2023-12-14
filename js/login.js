@@ -1,4 +1,5 @@
 'use strict';
+
 // Get the modal
 const modal = document.getElementById('loginModal');
 const registerModal = document.getElementById('registerModal');

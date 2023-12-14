@@ -12,6 +12,11 @@
   font-style: normal;
 }  */
 
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
 
 /*BG VIDEO*/
 
@@ -31,20 +36,56 @@
 
 
 /* SHOPPING CART */
+
+.add-btn {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-size: 14px;
+	color: black;
+	background: transparent;
+	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+	transition: 0.2s all ease;
+}
+
+.add-btn:hover {
+	color: white;
+}
+
 .shopping-cart {
+	display: flex;
+	align-items: center;
+	flex-flow: column;
 	border: 2px inset black;
 	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.1);
 	margin-top: 40px;
-	height: 445px;
+	height: 400px;
 	width: 340px;
-	overflow: hidden;
-
-
+	overflow: scroll;
 }
 
-.shopping-cart p {
+.item {
+	list-style-type: none;
+	padding: 0;
+	color: rgb(240, 240, 240);
+	display: flex;
+	flex-flow: row;
+	gap: 12px;
+	justify-content: center;
+	margin: 7px 0 7px 0;
 
+	font-family: "Courier New", monospace;
+	font-weight: 600;
+	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+}
+
+.item-name {
+	
+}
+
+.item-price {
+	font-style: italic;
 }
 
 
@@ -274,6 +315,8 @@ hr {
 	outline-offset: -15px;
 	
 	border-radius: 5px;
+
+	overflow: hidden;
 }
 
 .rm-container .rm-front,
@@ -309,12 +352,13 @@ hr {
 	border: 1px white solid;
 	background-color: rgba(255, 255, 255, 0.05);
 	padding: 5px;
-	transition: 0.2s all ease;
+	transition: 0.3s all ease;
 }
 
 .login:hover {
 	background-color: rgba(255, 255, 255, 0.15);
 	filter: opacity(1);
+	border-style: dashed;
 }
 
 .darkmode {
@@ -325,12 +369,13 @@ hr {
 	border: 1px white solid;
 	background-color: rgba(255, 255, 255, 0.05);
 	padding: 5px;
-	transition: 0.2s all ease;
+	transition: 0.3s all ease;
 }
 
 .darkmode:hover {
 	background-color: rgba(255, 255, 255, 0.15);
 	filter: opacity(1);
+	border-style: dashed;
 }
 
 .rm-container .rm-back {
@@ -506,6 +551,24 @@ a.rm-button-open2 {
 }
 
 a.rm-button-open2:hover {
+	letter-spacing: 4px;
+} 
+
+a.rm-button-close2 {
+	font-family: 'Lucida Handwriting', cursive, serif;
+	color: rgb(21, 21, 21);	
+	text-shadow: 1px 1px 0 rgba(59, 35, 11, 0.5);
+	font-size: 16px;
+	line-height: 45px;
+	margin: 10px auto;
+	display: block;
+	letter-spacing: 7px;
+	transition: 0.2s all ease;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+a.rm-button-close2:hover {
 	letter-spacing: 4px;
 } 
 
@@ -871,6 +934,10 @@ body {
 }
 
 .price {
+	font-style: italic;
+}
+
+.language-highlight {
 	font-style: italic;
 }
 
