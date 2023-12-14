@@ -1,0 +1,104 @@
+### GET /api/products/
+GET http://localhost:3000/api/products/
+
+### GET /api/products/:id
+GET http://localhost:3000/api/products/2
+
+### GET /api/products/:id error
+GET http://localhost:3000/api/products/999
+
+### POST /api/products/
+POST http://localhost:3000/api/products/
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDIwMjkyNDksImV4cCI6MTcwMjExNTY0OX0.Y6OSbFbiO88pTJrP71WPyjHs6_4K5yHdFWq3T-01PBw
+
+{
+    "product_name": "test5",
+    "description": "test description asd",
+    "price": 9.50,
+    "image_url": "http://placekitten.com/400/400"
+}
+
+### POST /api/products/ error
+POST http://localhost:3000/api/products/
+content-type: application/json
+
+{
+    "description": "test description",
+    "price": 100.00,
+    "image_url": "test"
+}
+
+
+### PUT /api/products/
+PUT http://localhost:3000/api/products/2
+content-type: application/json
+
+{
+    "product_name": "test_edit 67",
+    "description": "test description asd",
+    "image_url": "3 aaaadwqaa"
+}
+
+### DELETE /api/products/
+DELETE http://localhost:3000/api/products/7
+
+### DELETE /api/products/ error
+DELETE http://localhost:3000/api/products/999
+
+### POST login
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "email": "newtester@metropolia.fi",
+    "password": "mostsecurepassword"
+}
+
+### POST login error
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "email": "newtester@metropolia.fi",
+    "password": "wrongpassword"
+}
+
+### GET my user info
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDIwMjkyNDksImV4cCI6MTcwMjExNTY0OX0.Y6OSbFbiO88pTJrP71WPyjHs6_4K5yHdFWq3T-01PBw
+
+### POST register
+POST http://localhost:3000/api/users/
+content-type: application/json
+
+{
+    "email": "newtester@metropolia.fi",
+    "password": "mostsecurepassword"
+}
+
+### POST register error
+POST http://localhost:3000/api/users/
+content-type: application/json
+
+{
+    "email": "realemail@gmail.com",
+    "password": "321"
+}
+
+### POST create order
+POST http://localhost:3000/order/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDI1NDc3MzEsImV4cCI6MTcwMjYzNDEzMX0._XK0kOHcaLHQGWXLe2FGp-SPKu9BDWALXfDuO1M3PKs
+
+### GET orders
+GET http://localhost:3000/order/
+
+### GET order by id
+GET http://localhost:3000/order/1
+
+### GET users
+GET http://localhost:3000/users/
+
+### POST /cart/:order_id/:product_id
+POST http://localhost:3000/cart/2/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDI1NDc3MzEsImV4cCI6MTcwMjYzNDEzMX0._XK0kOHcaLHQGWXLe2FGp-SPKu9BDWALXfDuO1M3PKs

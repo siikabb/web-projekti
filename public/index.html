@@ -1,0 +1,242 @@
+<!-- Thanks to https://tympanus.net/codrops/2012/09/25/3d-restaurant-menu-concept/ for the tutorial/demo -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysium | Restaurant</title>
+    <link rel="icon" type="image/x-icon" href="visuals/chefit.png">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <!-- <script src="js/shopping-cart.js" defer></script> -->
+    <script src="js/fetch.js" type="module" defer></script>
+</head>
+
+<body id="ex1">
+
+    <div id="notification" class="hidden">Item added to cart!</div>
+
+    <div id="loginModal" class="loginModal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Close the modal button X -->
+            <span class="close">&times;</span>
+            <p style="text-align: center; margin: 0; font-size: 25px; font-weight: 600;">Sign In</p>
+            <!-- Login form -->
+            <form id="user-login" action="/login" method="post">
+                <label for="login-email">
+                    <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                    <input type="email" id="login-email" name="username" placeholder="Email"
+                        style="padding-left: 27px;">
+                </label>
+                <label for="login-password">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
+                    <input type="password" id="login-password" name="password" placeholder=" Password" pattern=".{8,}">
+                </label>
+                <input type="submit" id="submit" value="Login" style="border: 1px dashed black; margin-top: 10px; ">
+
+            </form>
+            <div class="register-div">
+                <p class="register-text">IF YOU'RE NOT REGISTERED IN OUR SYSTEM, SIGN UP HERE NOW.</p>
+                <button class="register-button ">
+                    <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="loginModal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <!-- Close the modal button X -->
+            <span class="close">&times;</span>
+            <p style="text-align: center; margin: 0; font-size: 25px; font-weight: 600;">Sign Up</p>
+            <!-- register form -->
+            <form id="user-register" action="/register" method="post">
+                <label for="register-email">
+                    <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+                    <input type="email" id="register-email" name="username" placeholder="Email"
+                        style="padding-left: 27px;">
+                </label>
+                <label for="register-password">
+                    <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
+                    <input type="password" id="register-password" name="password" placeholder=" Password"
+                        pattern=".{8,}">
+                </label>
+                <input type="submit" id="submit" value="Register" style="margin-top: 8px; border: 1px dashed black;">
+            </form>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p style="text-align: center; font-size: 15px;">Menu ITEM</p>
+            <p>name</p>
+            <p>desc</p>
+            <p>price</p>
+            <button>add to shopping cart</button>
+        </div>
+    </div>
+
+    <video id="background-video" autoplay loop muted poster="/visuals/bgvid.mp4">
+        <source src="/visuals/bgvid.mp4" type="video/mp4">
+    </video>
+
+    <section class="main">
+
+        <section class="main" id="ex1-layer">
+
+            <div id="rm-container" class="rm-container">
+
+                <div class="rm-wrapper">
+
+                    <div class="rm-cover">
+
+                        <div class="rm-front">
+
+                            <div class="rm-content" style="padding: 5px;">
+                                <div class="email"></div>
+                                <div class="rm-logo"></div>
+                                <h2>Elysium</h2>
+                                <hr>
+                                <h3 style="letter-spacing: 2px;">Fine Dining &amp; Delivery</h3>
+
+                                <a href="#" class="rm-button-open">OPEN MENU</a>
+                                <div class="rm-info">
+                                    <p>
+                                        Restaurant Elysium<br>
+                                        Albertinkatu 31<br>
+                                        00180 Helsinki<br>
+                                </div>
+                                <div class="options">
+                                    <!-- <button class="darkmode"><span class="language-highlight">Eng</span> / Fin</button> -->
+                                    <button class="login" id="open-modal-btn">Sign In / Sign Up</button>
+                                </div>
+
+                            </div><!-- /rm-content -->
+                        </div><!-- /rm-front -->
+
+                        <div class="rm-back">
+                            <div class="rm-content">
+                                <h4 style="margin-bottom: 15px;">Appetizers</h4>
+                                <hr style="margin-bottom: 20px;">
+                                <!-- <dl>
+                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span> <button
+                                            class="add-btn">+</button></dt>
+                                    <dd>Rich truffle tomatoes on artisanal bread.</dd>
+
+                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span> <button
+                                            class="add-btn">+</button></dt>
+                                    <dd>Exquisite bites to tantalize your palate, a lavish selection.</dd>
+
+                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span
+                                            class="price">$10.99</span> <button class="add-btn">+</button></dt>
+                                    <dd>Plant-based delight, fresh veggies, flavorful tofu rolls.</dd>
+
+                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span> <button
+                                            class="add-btn">+</button></dt>
+                                    <dd>Indulge in luxury, caviar atop delicate Russian-style blini.</dd>
+
+                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span
+                                            class="price">$12.99</span> <button class="add-btn">+</button></dt>
+                                    <dd>Burst of flavors, plant-based goodness in every bite.</dd>
+                                </dl> -->
+                                <dl id="appetizers"></dl>
+
+
+                                <h4 style="margin-top: 0;">Drinks</h4>
+                                <hr style="margin-bottom: 30px;">
+                                <dl id="drinks"></dl>
+                                <!-- <dl>
+                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span> <button
+                                            class="add-btn">+</button></dt>
+                                    <dd>Non-alcoholic blend of delightful seasonal fruits.</dd>
+
+                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span> <button
+                                            class="add-btn">+</button></dt>
+                                    <dd>Immerse in crisp elegance, a fine white wine experience.</dd>
+                                </dl> -->
+
+                                <!-- <hr> -->
+                                <a href="#" class="rm-button-close1">CLOSE MENU</a>
+                            </div><!-- /rm-content -->
+                            <div class="rm-overlay"></div>
+
+                        </div><!-- /rm-back -->
+
+                    </div><!-- /rm-cover -->
+
+                    <!-- <div class="rm-covr2"> -->
+                    <div class="rm-middle">
+                        <div class="rm-front">
+                            <div class="rm-inner">
+                                <div class="rm-content">
+                                    <h4 style="margin-bottom: 15px;">Main Courses</h4>
+                                    <hr style="margin-bottom: 20px;">
+                                    <dl id="main-courses"></dl>
+                                    <!-- <dl>
+                                            <dt>Lobster Bisque Elysium - <span class="price">$32.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Dive into opulence, creamy lobster bisque masterpiece.</dd>
+        
+                                            <dt>Symphony Risotto <span class="vegan">(Vegan)</span> - <span class="price">$34.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Plant-powered symphony, creamy comforting risotto sensation.</dd>
+        
+                                            <dt>Prime Fillet Mignon Royale - <span class="price">$39.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Epitome of steak perfection, prime fillet fit for royalty.</dd>
+        
+                                            <dt>Mediterranean Jewel Sea Bass - <span class="price">$44.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Mediterranean-inspired sea bass masterpiece.</dd>
+        
+                                            <dt>Golden Truffle Risotto - <span class="price">$26.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Luxuriate in decadence, truffle-infused risotto bliss.</dd>
+                                                                                                                        
+                                            <dt>Forbidden Tagliatelle <span class="vegan">(Vegan)</span> - <span class="price">$22.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Revel in the luscious flavors of this vegan tagliatelle adorned with garden delights.</dd>
+                                            
+                                            <dt>Herb Encrusted Rack of Lamb - <span class="price">$36.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Experience culinary excellence with a herb-infused lamb.</dd>
+                                            
+                                            <dt>Japanese Black Cod Miso - <span class="price">$45.99</span> <button class="add-btn">+</button></dt>
+                                            <dd>Embark on a culinary journey with perfectly grilled black cod glazed in savory miso.</dd>
+                                        </dl> -->
+                                    <a href="#" class="rm-button-open2">Continue to cart</a>
+                                </div><!-- /rm-content -->
+                                <div class="rm-overlay"></div>
+                            </div><!-- /rm-inner -->
+                        </div>
+
+                        <div class="rm-back">
+                            <div class="rm-end">
+                                <div class="rm-content">
+                                    <h4>Shopping cart</h4>
+                                    <hr>
+                                    <div class="shopping-cart">
+                                    </div>
+                                    <button class="order-button">Order Now ~ Enjoy Soon!</button>
+                                    <a href="#" class="rm-button-close2">Back to menu</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /rm-middle -->
+
+                <!-- </div> -->
+
+            </div><!-- /rm-wrapper -->
+
+            </div><!-- /rm-container -->
+
+        </section>
+    </section>
+</body>
+
+</html>
