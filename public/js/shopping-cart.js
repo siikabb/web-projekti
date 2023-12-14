@@ -43,7 +43,7 @@ const showNotification = () => {
 
   setTimeout(function () {
     hideNotification();
-  }, 1000);
+  }, 625);
 };
 
 const hideNotification = () => {

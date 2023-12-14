@@ -15,8 +15,8 @@ body {
     min-height: 100vh;
 
     transition: background-color 0.3s ease;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    /* overflow-y: hidden;
+    overflow-x: hidden; */
 }
 
 .dark-mode {
@@ -154,6 +154,10 @@ strong {
     display: block;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 950px) {
     .demo-note { display: block;}
+
+    body {
+        overflow-y: scroll;
+    }
 }

@@ -22,27 +22,27 @@
 
 #notification {
 	position: fixed;
-	top: 0;
+	top: 15px;
 	left: 50%;
-	transform: translateX(-50%);
-	background-color: #4CAF50;
-	color: white;
+	transform: translateX(-50%) scale(0.9);
+	background-color: rgba(0, 0, 0, 0.75);
+	border: 1px rgba(240, 240, 240, 0.65) solid;
+	color: rgb(240, 240, 240);
 	padding: 15px;
 	border-radius: 5px;
-	visibility: hidden;
-	opacity: 0;
-	transition: visibility 0s, opacity 0.5s ease-in-out;
+	filter: opacity(0%);
+	transition: 0.2s all ease;
 	z-index: 100;
 }
   
 #notification.show {
-	visibility: visible;
-	opacity: 1;
+	filter: opacity(100%);
+	transform: translateX(-50%) scale(1.1);
 }
   
 #notification.hidden {
-	visibility: hidden;
-	opacity: 0;
+	filter: opacity(0%);
+	transform: translateX(-50%) scale(0.9);
 }
 
 /* BG VIDEO */
@@ -88,7 +88,7 @@
 	background-color: rgba(0, 0, 0, 0.1);
 	margin-top: 40px;
 	height: 390px;
-	width: 340px;
+	width: 350px;
 	overflow: scroll;
 	backdrop-filter: blur(1.25px) opacity(90%) brightness(90%);
 }
@@ -354,7 +354,7 @@ hr {
 	/* filter: drop-shadow(inset 0 0 5rem); */
 	/* box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5); */
 	/* background-size: cover; */
-	width: 100%;
+	width: 450px;
 	height: 100%;
 	position: absolute;
 	padding: 30px;
@@ -1171,16 +1171,20 @@ strong {
 	}
 
 	.rm-wrapper > div > div {
-		border: 2px solid red;
+		/* border: 2px solid red; */
 		margin-bottom: 10px;
-		box-shadow: 
+		/* box-shadow: 
 			inset 0 0 0 16px #fff, 
 			inset 0 0 0 17px #a78122, 
 			inset 0 0 0 18px #fff, 
 			inset 0 0 0 19px #79601f, 
 			inset 0 0 0 20px #fff, 
 			inset 0 0 0 21px #e68e41,
-			0 3px 5px rgba(0,0,0,0.2);
+			0 3px 5px rgba(0,0,0,0.2); */
+
+		outline: 3px dashed rgba(59, 35, 11, 0.6);
+		outline-offset: -15px;
+		border-radius: 5px;
 	}
 
 	.rm-container .rm-back,
@@ -1229,6 +1233,11 @@ strong {
 	}
 }
 
+@media screen and (max-width: 500px) {
+	.shopping-cart {
+		width: 64vw;
+	}
+}
 
 
 /* NORMALIZE */
