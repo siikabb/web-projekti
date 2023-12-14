@@ -29,11 +29,11 @@
             <form id="user-login" action="/login" method="post">
                 <label for="userName">
                     <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                    <input type="text" id="userName" name="username" placeholder="Email" style="padding-left: 27px;">
+                    <input type="email" id="userName" name="username" placeholder="Email" style="padding-left: 27px;">
                 </label>
                 <label for="userPassword">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
-                    <input type="password" id="userPassword" name="password" placeholder=" Password">
+                    <input type="password" id="userPassword" name="password" placeholder=" Password" pattern=".{8,}">
                 </label>      
                     <input type="submit" id="submit" value="Login" style="border: 1px dashed black; margin-top: 10px; ">
             </form>
@@ -56,11 +56,11 @@
             <form id="user-register" action="/register" method="post">
                 <label for="userName">
                     <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                    <input type="text" id="userName" name="username" placeholder="Username" style="padding-left: 27px;">
+                    <input type="email" id="userName" name="username" placeholder="Username" style="padding-left: 27px;">
                 </label>
                 <label for="userPassword">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
-                    <input type="password" id="userPassword" name="password" placeholder=" Password">
+                    <input type="password" id="userPassword" name="password" placeholder=" Password" pattern=".{8,}">
                 </label>
                     <input type="submit" id="submit" value="Register" style="margin-top: 8px; border: 1px dashed black;">
             </form>  
