@@ -1,6 +1,7 @@
 <!-- CREDIST HERE FOR THE CODROPS 3D RESTAURANTE MENU -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,11 @@
     <script src="js/menu.js" defer></script>
     <script src="js/login.js" defer></script>
     <script src="js/shopping-cart.js" defer></script>
+    <script src="js/fetch.js" type="module" defer></script>
 </head>
+
 <body id="ex1">
-    
+
 
 
     <div id="loginModal" class="loginModal">
@@ -25,7 +28,7 @@
         <div class="modal-content">
             <!-- Close the modal button X -->
             <span class="close">&times;</span>
-            
+
             <!-- Login form -->
             <form id="user-login" action="/login" method="post">
                 <label for="userName">
@@ -35,8 +38,8 @@
                 <label for="userPassword">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
                     <input type="password" id="userPassword" name="password" placeholder=" Password">
-                </label>      
-                    <input type="submit" id="submit" value="Login">
+                </label>
+                <input type="submit" id="submit" value="Login">
 
             </form>
             <div class="register-div">
@@ -47,7 +50,7 @@
 
             </div>
 
-            
+
         </div>
 
     </div>
@@ -70,10 +73,10 @@
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
                     <input type="password" id="userPassword" name="password" placeholder=" Password">
                 </label>
-                    <input type="submit" id="submit" value="Register">
+                <input type="submit" id="submit" value="Register">
 
             </form>
-            
+
         </div>
 
     </div>
@@ -84,15 +87,15 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <p style="text-align: center; font-size: 15px;">Menu ITEM</p>
-          <p>name</p>
-          <p>desc</p>
-          <p>price</p>
-          <button>add to shopping cart</button> 
+            <span class="close">&times;</span>
+            <p style="text-align: center; font-size: 15px;">Menu ITEM</p>
+            <p>name</p>
+            <p>desc</p>
+            <p>price</p>
+            <button>add to shopping cart</button>
         </div>
-      
-      </div>
+
+    </div>
 
 
     <!-- <div id="mode">
@@ -102,7 +105,7 @@
 
     <!-- <button class="signbutton">sign up</button>
     <button class="loginbutton">log in</button> -->
-    
+
     <video id="background-video" autoplay loop muted poster="/visuals/bgvid.mp4">
         <source src="/visuals/bgvid.mp4" type="video/mp4">
     </video>
@@ -110,15 +113,15 @@
     <section class="main">
 
         <section class="main" id="ex1-layer">
-            
+
             <div id="rm-container" class="rm-container rm-open rm-open2">
 
                 <div class="rm-wrapper">
 
                     <div class="rm-cover">
-        
+
                         <div class="rm-front">
-                            
+
                             <div class="rm-content">
 
                                 <div class="rm-logo"></div>
@@ -129,10 +132,10 @@
                                 <a href="#" class="rm-button-open">OPEN MENU</a>
                                 <div class="rm-info">
                                     <p>
-                                    Restaurant Elysium<br>
-                                    Albertinkatu 31<br>
-                                    00180 Helsinki<br>
-                                    <!-- <strong>Puh.</strong> +35889798665<br> -->
+                                        Restaurant Elysium<br>
+                                        Albertinkatu 31<br>
+                                        00180 Helsinki<br>
+                                        <!-- <strong>Puh.</strong> +35889798665<br> -->
                                 </div>
                                 <div class="options">
                                     <button class="darkmode"><span class="language-highlight">Eng</span> / Fin</button>
@@ -146,33 +149,42 @@
                             <div class="rm-content">
                                 <h4 style="margin-bottom: 15px;">Appetizers</h4>
                                 <hr style="margin-bottom: 20px;">
-                                <dl>
-                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span> <button class="add-btn">+</button></dt>
+                                <!-- <dl>
+                                    <dt>Truffle Infusion Bruschetta - <span class="price">$11.99</span> <button
+                                            class="add-btn">+</button></dt>
                                     <dd>Rich truffle tomatoes on artisanal bread.</dd>
 
-                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span> <button class="add-btn">+</button></dt>
+                                    <dt>Culinary Elegance Sampler - <span class="price">$14.99</span> <button
+                                            class="add-btn">+</button></dt>
                                     <dd>Exquisite bites to tantalize your palate, a lavish selection.</dd>
 
-                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span class="price">$10.99</span> <button class="add-btn">+</button></dt>
+                                    <dt>Harvest Spring Rolls <span class="vegan">(Vegan)</span> - <span
+                                            class="price">$10.99</span> <button class="add-btn">+</button></dt>
                                     <dd>Plant-based delight, fresh veggies, flavorful tofu rolls.</dd>
 
-                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span> <button class="add-btn">+</button></dt>
+                                    <dt>Caviar Dreams on Blini - <span class="price">$25.99</span> <button
+                                            class="add-btn">+</button></dt>
                                     <dd>Indulge in luxury, caviar atop delicate Russian-style blini.</dd>
-                                    
-                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span class="price">$12.99</span> <button class="add-btn">+</button></dt>
-                                    <dd>Burst of flavors, plant-based goodness in every bite.</dd>
-                                </dl>
 
-                                
+                                    <dt>Delight Stuffed Peppers <span class="vegan">(Vegan)</span> - <span
+                                            class="price">$12.99</span> <button class="add-btn">+</button></dt>
+                                    <dd>Burst of flavors, plant-based goodness in every bite.</dd>
+                                </dl> -->
+                                <dl id="appetizers"></dl>
+
+
                                 <h4 style="margin-top: 0;">Drinks</h4>
                                 <hr style="margin-bottom: 20px;">
-                                <dl>
-                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span> <button class="add-btn">+</button></dt>
+                                <dl id="drinks"></dl>
+                                <!-- <dl>
+                                    <dt>Enchanted Orchard Elixir - <span class="price">$7.99</span> <button
+                                            class="add-btn">+</button></dt>
                                     <dd>Non-alcoholic blend of delightful seasonal fruits.</dd>
 
-                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span> <button class="add-btn">+</button></dt>
+                                    <dt>Whispering Pines Pinot Grigio - <span class="price">$18.99</span> <button
+                                            class="add-btn">+</button></dt>
                                     <dd>Immerse in crisp elegance, a fine white wine experience.</dd>
-                                </dl>
+                                </dl> -->
 
                                 <!-- <h4>Salads &amp; More</h4>
                                 <dl>
@@ -195,13 +207,14 @@
                     </div><!-- /rm-cover -->
 
                     <!-- <div class="rm-covr2"> -->
-                        <div class="rm-middle">
-                            <div class="rm-front">
-                                <div class="rm-inner">
-                                    <div class="rm-content">
-                                        <h4 style="margin-bottom: 15px;">Main Courses</h4>
-                                        <hr style="margin-bottom: 20px;">
-                                        <dl>
+                    <div class="rm-middle">
+                        <div class="rm-front">
+                            <div class="rm-inner">
+                                <div class="rm-content">
+                                    <h4 style="margin-bottom: 15px;">Main Courses</h4>
+                                    <hr style="margin-bottom: 20px;">
+                                    <dl id="main-courses"></dl>
+                                    <!-- <dl>
                                             <dt>Lobster Bisque Elysium - <span class="price">$32.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Dive into opulence, creamy lobster bisque masterpiece.</dd>
         
@@ -225,20 +238,20 @@
                                             
                                             <dt>Japanese-inspired Black Cod Miso - <span class="price">$45.99</span> <button class="add-btn">+</button></dt>
                                             <dd>Embark on a culinary journey with perfectly grilled black cod glazed in savory miso.</dd>
-                                        </dl>
-                                        <a href="#" class="rm-button-open2">Continue to cart</a>
-                                    </div><!-- /rm-content -->
-                                    <div class="rm-overlay"></div>
-                                </div><!-- /rm-inner -->
-                            </div>
+                                        </dl> -->
+                                    <a href="#" class="rm-button-open2">Continue to cart</a>
+                                </div><!-- /rm-content -->
+                                <div class="rm-overlay"></div>
+                            </div><!-- /rm-inner -->
+                        </div>
 
-                            <div class="rm-back">
-                                <div class="rm-end">
-                                    <div class="rm-content">
-                                        <h4>Shopping cart</h4>
-                                        <hr>
-                                        <div class="shopping-cart">
-                                            <!-- <ul class="item">
+                        <div class="rm-back">
+                            <div class="rm-end">
+                                <div class="rm-content">
+                                    <h4>Shopping cart</h4>
+                                    <hr>
+                                    <div class="shopping-cart">
+                                        <!-- <ul class="item">
                                                 <li class="item-name">FORBIDDEN TAGLIATELLE (VEGAN)</li>
                                                 <li class="item-price">$30.99</li>
                                             </ul>
@@ -246,8 +259,8 @@
                                                 <li class="item-name">FORBIDDEN TAGLIATELLE (VEGAN)</li>
                                                 <li class="item-price">$30.99</li>
                                             </ul> -->
-                                        </div>
-                                        <!-- <dl>
+                                    </div>
+                                    <!-- <dl>
                                             <dt><a href="http://herbivoracious.com/2009/03/panfried-gnocchi-with-arugula-recipe.html" class="rm-viewdetails" data-thumb="images/11.jpg">Crispy Gnocchi with Arugula</a></dt>
                                             <dd>Pan-fried potato gnocchi with arugula salad</dd>
         
@@ -274,14 +287,14 @@
 
                             
                                         </dl> -->
-                                        <a href="#" class="rm-button-close2">Back to menu</a>
-                                        <button class="order-button">Order</button>
-                                    </div>
+                                    <a href="#" class="rm-button-close2">Back to menu</a>
+                                    <button class="order-button">Order</button>
+                                </div>
                             </div>
-                            </div>
-                            
-                        </div><!-- /rm-middle -->
-    
+                        </div>
+
+                    </div><!-- /rm-middle -->
+
                     <!-- </div> -->
 
                 </div><!-- /rm-wrapper -->
@@ -291,4 +304,5 @@
         </section>
     </section>
 </body>
+
 </html>
