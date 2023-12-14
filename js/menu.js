@@ -87,11 +87,16 @@ if (isFirefox) {
   // Code for Safari
 } else {
   // Code for other browsers (Chrome)
-  mouseOverContainer.onmousemove = (e) => {
-    let xy = [e.clientX, e.clientY];
-    let position = xy.concat([ex1Layer]);
-    window.requestAnimationFrame(() => {
-      transformElement(ex1Layer, position);
-    });
-  };
+  if (window.innerWidth > 500) {
+    mouseOverContainer.onmousemove = (e) => {
+      let xy = [e.clientX, e.clientY];
+      let position = xy.concat([ex1Layer]);
+      window.requestAnimationFrame(() => {
+        transformElement(ex1Layer, position);
+      });
+    };
+    // console.log('big');
+  } else {
+    // console.log('small');
+  }
 }
