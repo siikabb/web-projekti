@@ -1199,6 +1199,10 @@ strong {
 		pointer-events: none;
 	}
 
+	.rm-button-open2 {
+		pointer-events: none;
+	}
+
 	.rm-button-open:after {
 		content: '\2193';
 	}
