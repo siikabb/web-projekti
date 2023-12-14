@@ -44,11 +44,11 @@ let constrain = 2000;
 let mouseOverContainer = document.getElementById('ex1');
 let ex1Layer = document.getElementById('ex1-layer');
 
-function lerp(start, end, t) {
+const lerp = (start, end, t) => {
   return start * (1 - t) + end * t;
-}
+};
 
-function transforms(x, y, el) {
+const transforms = (x, y, el) => {
   let box = el.getBoundingClientRect();
   let calcX = -(y - box.y - box.height / 2) / constrain;
   let calcY = (x - box.x - box.width / 2) / constrain;
@@ -68,19 +68,29 @@ function transforms(x, y, el) {
     calcY +
     'deg) '
   );
-}
-
-function transformElement(el, xyEl) {
-  el.style.transform = transforms.apply(null, xyEl);
-}
-
-mouseOverContainer.onmousemove = function (e) {
-  let xy = [e.clientX, e.clientY];
-  let position = xy.concat([ex1Layer]);
-
-  window.requestAnimationFrame(function () {
-    transformElement(ex1Layer, position);
-  });
 };
 
-// Remove 3d from firefox and safari
+const transformElement = (el, xyEl) => {
+  el.style.transform = transforms.apply(null, xyEl);
+};
+
+// Remove 3D mousemove from Firefox and Safari (doesn't work properly / breaks)
+
+const isFirefox = typeof InstallTrigger !== 'undefined';
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+if (isFirefox) {
+  // Code for Firefox
+} else if (isSafari) {
+  // Code for Safari
+} else {
+  // Code for other browsers (Chrome)
+  mouseOverContainer.onmousemove = (e) => {
+    let xy = [e.clientX, e.clientY];
+    let position = xy.concat([ex1Layer]);
+
+    window.requestAnimationFrame(() => {
+      transformElement(ex1Layer, position);
+    });
+  };
+}
