@@ -59,7 +59,7 @@ register.addEventListener('submit', async (event) => {
       }),
     }).then((response) => {
       showNotification('Registration successful!');
-      registerModal.display.style = 'none';
+      registerModal.style.display = 'none';
     });
   } catch (e) {
     console.log(e);
@@ -84,9 +84,13 @@ for (const product of products) {
     target = appetizerContainer;
   }
   const dt = document.createElement('dt');
+  dt.insertAdjacentHTML('beforeend', `${product.name}`);
+  if (product.diets === 'vegan') {
+    dt.insertAdjacentHTML('beforeend', ' <span class="vegan">(Vegan)</span>');
+  }
   dt.insertAdjacentHTML(
     'beforeend',
-    `${product.name} - <span class="price">${product.price} €</span> `
+    ` - <span class="price">${product.price} €</span> `
   );
   const button = document.createElement('button');
   button.classList.add('add-btn');
@@ -189,7 +193,10 @@ orderButton.addEventListener('click', async () => {
         },
       });
     }
+    shoppingCart.innerHTML = '';
+    showNotification('Order successful!');
   } catch (e) {
     console.log(e);
+    showNotification('Please log in before ordering');
   }
 });
