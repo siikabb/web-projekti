@@ -1,0 +1,4 @@
+.env
+db/create-user.sql
+docs
+node_modules
