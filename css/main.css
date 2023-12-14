@@ -89,7 +89,7 @@
 	margin-top: 40px;
 	height: 390px;
 	width: 350px;
-	overflow: scroll;
+	overflow: auto;
 	backdrop-filter: blur(1.25px) opacity(90%) brightness(90%);
 }
 
@@ -121,6 +121,7 @@
 .delete-item {
 	cursor: pointer;
 	transition: 0.3s all ease;
+	color: rgb(240, 240, 240);
 }
 
 .delete-item:hover {
@@ -1189,7 +1190,8 @@ strong {
 
 	.rm-container .rm-back,
 	.rm-container.rm-open .rm-cover,
-	.rm-container.rm-open .rm-right {
+	.rm-container.rm-open .rm-right, 
+	.rm-container.rm-open .rm-middle {
 		-webkit-transform: rotateY(0deg);
 		transform: rotateY(0deg);
 	}
@@ -1204,6 +1206,10 @@ strong {
 	}
 
 	.rm-button-open {
+		pointer-events: none;
+	}
+
+	.rm-button-close1 {
 		pointer-events: none;
 	}
 
@@ -1225,11 +1231,17 @@ strong {
 
 	.rm-container.rm-in .rm-cover,
 	.rm-container.rm-in .rm-right,
-	.rm-container.rm-in .rm-wrapper {
+	.rm-container.rm-in .rm-wrapper,
+	.rm-container.rm-in .rm-middle {
 		-webkit-transform: rotateY(0deg);
 		-webkit-transition-delay: 0s;
 		transform: rotateY(0deg);
 		transition-delay: 0s;
+	}
+
+	.rm-wrapper .rm-middle,
+	.rm-wrapper .rm-right {
+		pointer-events: all;
 	}
 }
 
