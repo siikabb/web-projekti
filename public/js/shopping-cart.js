@@ -26,6 +26,7 @@ const addItem = (itemName, itemPrice) => {
 // Check if addButton is clicked
 addButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    console.log('add button');
     const itemName = button.parentElement.firstChild.textContent
       .trim()
       .replace(/-/g, '');

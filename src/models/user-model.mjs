@@ -5,7 +5,7 @@ import promisePool from '../utils/database.mjs';
 
 const login = async (email) => {
   try {
-    const sql = `SELECT user_id, password, user_level FROM Users WHERE email = ?`;
+    const sql = `SELECT email, user_id, password, user_level FROM Users WHERE email = ?`;
     const params = [email];
     const result = await promisePool.query(sql, params);
     const [rows] = result;
