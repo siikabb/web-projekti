@@ -14,8 +14,8 @@
     <!-- <link rel="stylesheet" href="normalize.css"> -->
     <script src="js/menu.js" defer></script>
     <script src="js/login.js" defer></script>
+    <script src="js/shopping-cart.js" defer></script>
     <script src="js/fetch.js" type="module" defer></script>
-    <!-- <script src="js/shopping-cart.js" type="module" defer></script> -->
 </head>
 
 <body id="ex1">
@@ -31,13 +31,13 @@
 
             <!-- Login form -->
             <form id="user-login" action="/login" method="post">
-                <label for="login-email">
+                <label for="userName">
                     <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                    <input type="text" id="login-email" name="username" placeholder="Email">
+                    <input type="text" id="userName" name="username" placeholder="Email">
                 </label>
-                <label for="login-password">
+                <label for="userPassword">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
-                    <input type="password" id="login-password" name="password" placeholder=" Password">
+                    <input type="password" id="userPassword" name="password" placeholder=" Password">
                 </label>
                 <input type="submit" id="submit" value="Login">
 
@@ -65,13 +65,13 @@
             <span class="close">&times;</span>
             <!-- register form -->
             <form id="user-register" action="/register" method="post">
-                <label for="register-email">
+                <label for="userName">
                     <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
-                    <input type="text" id="register-email" name="username" placeholder="Username">
+                    <input type="text" id="userName" name="username" placeholder="Username">
                 </label>
-                <label for="register-password">
+                <label for="userPassword">
                     <i class="fa fa-lock fa-lg" aria-hidden="true"> </i>
-                    <input type="password" id="register-password" name="password" placeholder=" Password">
+                    <input type="password" id="userPassword" name="password" placeholder=" Password">
                 </label>
                 <input type="submit" id="submit" value="Register">
 
