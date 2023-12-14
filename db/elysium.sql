@@ -15,7 +15,7 @@ CREATE TABLE Products (
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     description VARCHAR(255),
-    type INT NOT NULL DEFAULT 0
+    type INT NOT NULL DEFAULT 0,
     diets VARCHAR(255)
 );
 
