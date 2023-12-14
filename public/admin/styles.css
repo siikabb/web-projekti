@@ -71,11 +71,14 @@ table:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.18);
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
   padding: 15px;
   text-align: left;
 }
@@ -85,14 +88,17 @@ th {
   color: #fff;
 }
 
-form {
+#menu-item-form {
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 
-input[type="text"], input[type="number"], select {
+input[type='text'],
+input[type='number'],
+select {
   width: calc(33% - 20px);
   padding: 12px;
   margin-top: 15px;
@@ -102,7 +108,9 @@ input[type="text"], input[type="number"], select {
   transition: border-color 0.2s ease-in-out;
 }
 
-input[type="text"]:hover, input[type="number"]:hover, select:hover {
+input[type='text']:hover,
+input[type='number']:hover,
+select:hover {
   border-color: #6d4c41; /* Medium chocolate brown */
 }
 
@@ -126,7 +134,8 @@ button:active {
   transform: translateY(2px);
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
   background-color: #8d6e63; /* Light chocolate brown */
   color: #fff;
   border: none;
@@ -137,7 +146,8 @@ button:active {
   transition: background-color 0.3s ease-in-out;
 }
 
-.edit-btn:hover, .delete-btn:hover {
+.edit-btn:hover,
+.delete-btn:hover {
   background-color: #795548; /* Rich chocolate brown */
 }
 
@@ -161,7 +171,9 @@ button:active {
     margin-left: 0;
   }
 
-  input[type="text"], input[type="number"], select {
+  input[type='text'],
+  input[type='number'],
+  select {
     width: calc(100% - 24px);
   }
 }

@@ -302,11 +302,14 @@ const updateOrderList = async () => {
         const cart = await fetchCart(order.order_id);
         console.log(cart);
         newRow.innerHTML = `
-                <td>${order.order_id}</td>
+                <td class="order_id">${order.order_id}</td>
                 <td>${order.order_time}</td>
                 <td>${order.user_id}</td>
-                <td>${cart}</td>
-                <td>${doneStatus}</td>`;
+                <td>${cart.join(', ')}</td>
+                <td>${doneStatus}</td>
+                <td>
+                    <button type="button" class="done-btn">&check;</button>
+                  </td>`;
         orderTable.appendChild(newRow);
       }
     });
@@ -333,4 +336,28 @@ const fetchCart = async (orderId) => {
   return cartItems;
 };
 
+document
+  .querySelector('#order-table tbody')
+  .addEventListener('click', function (event) {
+    const target = event.target;
+    const row = target.closest('tr');
+    const orderId = row.querySelector('.order_id').textContent;
+    console.log(row);
+    console.log(orderId);
+
+    if (target.classList.contains('done-btn')) {
+      markOrderAsDone(orderId);
+    }
+  });
+
 // updateOrderList();
+const markOrderAsDone = (orderId) => {
+  const url = `../order/${orderId}`;
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + token,
+    },
+  }).then((response) => response.json());
+  updateOrderList();
+};

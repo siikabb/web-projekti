@@ -4,6 +4,7 @@ import {authRouter} from './routes/auth-router.mjs';
 import {userRouter} from './routes/user-router.mjs';
 import {orderRouter} from './routes/order-router.mjs';
 import path from 'path';
+import {cartRouter} from './routes/cart-router.mjs';
 
 const hostname = '127.0.0.1';
 const app = express();
@@ -24,6 +25,7 @@ app.use('/products/', productRouter);
 app.use('/auth/', authRouter);
 app.use('/users/', userRouter);
 app.use('/order/', orderRouter);
+app.use('/cart/', cartRouter);
 
 app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);

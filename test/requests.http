@@ -88,13 +88,17 @@ content-type: application/json
 
 ### POST create order
 POST http://localhost:3000/order/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjoyLCJpYXQiOjE3MDIwMjkyNDksImV4cCI6MTcwMjExNTY0OX0.Y6OSbFbiO88pTJrP71WPyjHs6_4K5yHdFWq3T-01PBw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDI1NDc3MzEsImV4cCI6MTcwMjYzNDEzMX0._XK0kOHcaLHQGWXLe2FGp-SPKu9BDWALXfDuO1M3PKs
 
 ### GET orders
-GET http://localhost:3000/api/order/
+GET http://localhost:3000/order/
 
 ### GET order by id
 GET http://localhost:3000/order/1
 
 ### GET users
 GET http://localhost:3000/users/
+
+### POST /cart/:order_id/:product_id
+POST http://localhost:3000/cart/1/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2xldmVsIjowLCJpYXQiOjE3MDI1NDc3MzEsImV4cCI6MTcwMjYzNDEzMX0._XK0kOHcaLHQGWXLe2FGp-SPKu9BDWALXfDuO1M3PKs

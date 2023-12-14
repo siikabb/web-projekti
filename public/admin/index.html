@@ -30,6 +30,7 @@
                         <th>Customer ID</th>
                         <th>Cart</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +48,7 @@
                 </select>
                 <input type="text" id="dish-name" placeholder="Dish Name" required>
                 <input type="text" id="dish-description" placeholder="Description">
-                <input type="number" id="dish-price" placeholder="Price" required>
+                <input type="number" id="dish-price" placeholder="Price" step="0.01" required>
                 <label for="vegan-check">Vegan</label>
                 <input type="checkbox" id="vegan-check">
                 <button type="submit" id="save-item">Save Menu Item</button>
