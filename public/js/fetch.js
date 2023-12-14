@@ -9,7 +9,6 @@ const registerModal = document.getElementById('registerModal');
 const login = document.getElementById('user-login');
 login.addEventListener('submit', async (event) => {
   event.preventDefault();
-  console.log(login.elements);
 
   const url = '../auth/login';
   const email = document.querySelector('#login-email');
@@ -28,11 +27,7 @@ login.addEventListener('submit', async (event) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         token = data.token;
-        console.log(token);
-        console.log(data.user.email);
-        // TODO: print this where relevant
         document.querySelector('.email').textContent =
           'Welcome in ' + data.user.email;
         showNotification('Logged in successfully!');
@@ -50,7 +45,6 @@ register.addEventListener('submit', async (event) => {
   const url = '../users/';
   const email = document.querySelector('#register-email');
   const password = document.querySelector('#register-password');
-  console.log('register');
 
   try {
     fetch(url, {
@@ -64,7 +58,6 @@ register.addEventListener('submit', async (event) => {
         password: password.value,
       }),
     }).then((response) => {
-      console.log(response);
       showNotification('Registration successful!');
       registerModal.display.style = 'none';
     });
@@ -80,8 +73,6 @@ const mainCourseContainer = document.querySelector('#main-courses');
 const products = await fetch(`/products/`, {
   method: 'GET',
 }).then((response) => response.json());
-
-console.log(products);
 
 for (const product of products) {
   let target = null;
@@ -102,25 +93,17 @@ for (const product of products) {
   button.textContent = '+';
   const dd = document.createElement('dd');
   dd.textContent = product.description;
-  //     `<dt>${product.name} - <span class="price">${product.price} €</span> <button
-  // class="add-btn">+</button></dt>
-  // <dd>${product.description}</dd>`
-  //   );
 
   button.addEventListener('click', () => {
-    console.log('add button');
     const itemName = button.parentElement.firstChild.textContent
       .trim()
       .replace(/-/g, '');
-    console.log(itemName);
     const itemPrice = parseFloat(
       button.parentElement.querySelector('.price').textContent.replace('$', '')
     );
-    console.log(itemPrice);
 
     addItem(itemName, itemPrice, product.product_id);
     idsInCart.push(product.product_id);
-    console.log(idsInCart);
     showNotification('Item added to the cart!');
   });
   dt.appendChild(button);
@@ -152,13 +135,10 @@ const addItem = (itemName, itemPrice, itemId) => {
   // Delete button
   itemDeleteElement.addEventListener('click', () => {
     newItem.remove();
-
     const index = idsInCart.indexOf(itemId);
     if (index > -1) {
       idsInCart.splice(index, 1);
     }
-
-    console.log(idsInCart);
   });
 
   newItem.appendChild(itemNameElement);
@@ -167,23 +147,6 @@ const addItem = (itemName, itemPrice, itemId) => {
 
   shoppingCart.appendChild(newItem);
 };
-
-// // Check if addButton is clicked
-// addButtons.forEach((button) => {
-//   button.addEventListener('click', () => {
-//     console.log('add button');
-//     const itemName = button.parentElement.firstChild.textContent
-//       .trim()
-//       .replace(/-/g, '');
-//     console.log(itemName);
-//     const itemPrice = parseFloat(
-//       button.parentElement.querySelector('.price').textContent.replace('$', '')
-//     );
-//     console.log(itemPrice);
-
-//     addItem(itemName, itemPrice);
-//   });
-// });
 
 const showNotification = (message) => {
   const notification = document.getElementById('notification');
